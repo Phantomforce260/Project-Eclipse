@@ -1,9 +1,12 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TemplateGame : Minigame 
+public class Spices : Minigame 
 {
     public Button OKButton;
+
+    // public WeightedItem[] weightedItems;
 
     private void Awake()
     {

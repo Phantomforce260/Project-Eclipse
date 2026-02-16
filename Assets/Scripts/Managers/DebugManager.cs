@@ -16,7 +16,7 @@ public class DebugManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Period))
         {
-            UIManager.CreateMinigame("TemplateGame");
+            UIManager.CreateMinigame("Spices");
         }
     }
 }
