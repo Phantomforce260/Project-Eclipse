@@ -1,12 +1,14 @@
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class Spices : Minigame 
 {
     public Button OKButton;
 
-    // public WeightedItem[] weightedItems;
+    public Image scale;
+    public Image leftPlate;
+    public Image rightPlate;
 
     private void Awake()
     {

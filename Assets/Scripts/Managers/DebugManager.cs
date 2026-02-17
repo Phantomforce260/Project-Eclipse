@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class DebugManager : MonoBehaviour
 {
@@ -14,9 +15,12 @@ public class DebugManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Period))
+        if (Keyboard.current.periodKey.wasPressedThisFrame)
         {
-            UIManager.CreateMinigame("Spices");
+            Debug.Log("key pressed");
+            string mg = "Spices";
+            Debug.Log("Starting minigame: " + mg);
+            UIManager.CreateMinigame(mg);
         }
     }
 }
