@@ -1144,7 +1144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UIManager
   Minigames:
   - {fileID: 7813149624243035785, guid: 90162376b14779149bc0800b226fb138, type: 3}
-  - {fileID: 2275893326136631409, guid: 95e92b7f02aabb640bd8f93eead20b37, type: 3}
+  - {fileID: 8138807854100584971, guid: 95e92b7f02aabb640bd8f93eead20b37, type: 3}
 --- !u!224 &1800888569
 RectTransform:
   m_ObjectHideFlags: 0
