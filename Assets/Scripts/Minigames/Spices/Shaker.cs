@@ -6,6 +6,8 @@ public class Shaker : MonoBehaviour
     public RectTransform rectTransform;
     public Scale scale;
 
+    public ParticleSystem shakerParticles;
+
     public float amplitude;
     public float flakesPerShake;
     private bool shakerLeft = false;
@@ -20,18 +22,14 @@ public class Shaker : MonoBehaviour
         bool pressedRight = Keyboard.current.rightArrowKey.wasPressedThisFrame
             || Keyboard.current.dKey.wasPressedThisFrame;
 
-        // TODO: Have this animate instead of snapping
-        if (pressedLeft && !shakerLeft)
+        // Shaker must be opposite of the inputted direction
+        if ((pressedLeft && !shakerLeft) || (pressedRight && shakerLeft))
         {
-            shakerLeft = true;
-            rectTransform.localPosition += new Vector3(-amplitude, 0f, 0f);
+            shakerLeft = pressedLeft;
+            rectTransform.localPosition += new Vector3(amplitude * (pressedLeft ? -1 : 1), 0f, 0f); // TODO: Change this to a nice animation
+
             scale.SetRightWeight(scale.rightWeight + Random.Range(0f, flakesPerShake));
-        }
-        else if (pressedRight && shakerLeft)
-        {
-            shakerLeft = false;
-            rectTransform.localPosition += new Vector3(amplitude, 0f, 0f);
-            scale.SetRightWeight(scale.rightWeight + Random.Range(0f, flakesPerShake));
+            shakerParticles.Play();
         }
     }
 }
