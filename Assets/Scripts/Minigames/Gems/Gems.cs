@@ -119,6 +119,11 @@ public class Gems : Minigame
                 MoveSelection(direction);
         }
     }
+	
+	void PositionGem()
+	{
+		
+	}
 
     void PositionGems()
     {
@@ -175,6 +180,9 @@ public class Gems : Minigame
         Gem t = gems[selectionCoords.y * gridDims + selectionCoords.x];
         gems[selectionCoords.y * gridDims + selectionCoords.x] = gems[swapTarget.y * gridDims + swapTarget.x];
         gems[swapTarget.y * gridDims + swapTarget.x] = t;
+
+        gems[swapTarget.y * gridDims + swapTarget.x].SetMovement(new Vector2(delta.x * spacingScale.x, delta.y * spacingScale.y));
+        gems[selectionCoords.y * gridDims + selectionCoords.x].SetMovement(new Vector2(delta.x * -spacingScale.x, delta.y * -spacingScale.y));
 
         PositionGems();
 
