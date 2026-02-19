@@ -1145,7 +1145,7 @@ MonoBehaviour:
   Minigames:
   - {fileID: 7813149624243035785, guid: 90162376b14779149bc0800b226fb138, type: 3}
   - {fileID: 2275893326136631409, guid: 95e92b7f02aabb640bd8f93eead20b37, type: 3}
-  - {fileID: 2275893326136631409, guid: 98a9680d4b03e7cbdbc4eb1bd0c6f684, type: 3}
+  - {fileID: 8332884649415179728, guid: 98a9680d4b03e7cbdbc4eb1bd0c6f684, type: 3}
 --- !u!224 &1800888569
 RectTransform:
   m_ObjectHideFlags: 0
