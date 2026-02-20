@@ -32,6 +32,7 @@ public class Gems : Minigame
 
     public RectTransform selector;
 
+    public Animator selectAnimator;
     private Vector2Int selectionCoords;
     public Gem selectedGem;
 
@@ -85,6 +86,7 @@ public class Gems : Minigame
 
         bool select = Keyboard.current.jKey.isPressed || Keyboard.current.zKey.isPressed;
 
+        selectAnimator.SetBool("SelectPressed", select);
         if (select)
         {
             selectedGem = gems[selectionCoords.y * gridDims + selectionCoords.x];
@@ -163,7 +165,6 @@ public class Gems : Minigame
 
         // Move selection above new gem
         selector.SetParent(gems[selectionCoords.y * gridDims + selectionCoords.x].transform);
-        selector.localPosition = Vector2.zero;
     }
 
     bool SwapGems(Vector2Int delta)
@@ -224,7 +225,7 @@ public class Gems : Minigame
                 for (int k = 0; k < gridDims; k++)
                 {
                     gems[i * gridDims + k].collected = true;
-                    gems[i * gridDims + k].GetComponent<Image>().enabled = false;
+                    gems[i * gridDims + k].Remove();
                 }
                 return true;
             }
@@ -233,7 +234,7 @@ public class Gems : Minigame
                 for (int k = 0; k < gridDims; k++)
                 {
                     gems[k * gridDims + i].collected = true;
-                    gems[k * gridDims + i].GetComponent<Image>().enabled = false;
+                    gems[k * gridDims + i].Remove();
                 }
                 return true;
             }

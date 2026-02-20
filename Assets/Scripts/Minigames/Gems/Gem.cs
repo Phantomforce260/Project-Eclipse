@@ -1,3 +1,4 @@
+using UnityEditor.Rendering;
 using UnityEngine;
 using GemType = Gems.GemType;
 
@@ -8,19 +9,27 @@ public class Gem : MonoBehaviour
 
 	private float easing = 0.99f;
 	private RectTransform rectTransform;
+	private Animator animator;
 
     void Start() 
 	{ 
-		rectTransform = transform.GetComponent<RectTransform>();
+		rectTransform = GetComponent<RectTransform>();
+		animator = GetComponent<Animator>();
 	}
 
-	void FixedUpdate()
+	void Update()
 	{
 		rectTransform.localPosition *= easing;
+		rectTransform.localScale = Vector2.one;
 	}
 
 	public void SetMovement(Vector2 movement) {
 		Debug.Log(movement);
 		rectTransform.localPosition += new Vector3(movement.x, movement.y, 0f);
+	}
+
+	public void Remove()
+	{
+		animator.Play("Gem");
 	}
 }
