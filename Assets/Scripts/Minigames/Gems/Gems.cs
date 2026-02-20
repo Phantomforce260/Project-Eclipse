@@ -1,9 +1,7 @@
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
 public class Gems : Minigame
 {
@@ -30,10 +28,10 @@ public class Gems : Minigame
     };
     public List<Gem> gems;
 
-    public RectTransform selector;
-
     public Animator selectAnimator;
     private Vector2Int selectionCoords;
+    public EaseToOrigin selectorPosition;
+
     public Gem selectedGem;
 
     private void Awake()
@@ -62,17 +60,25 @@ public class Gems : Minigame
 
         ShuffleGems();
 
+        // Calculate the bounds of the array of gems grid
+        gridRect = new Rect(
+            Mathf.Lerp(0, container.rect.width, gridPaddingLeft),
+            Mathf.Lerp(0, container.rect.height, gridPaddingTop),
+            container.rect.width * (1f - gridPaddingLeft - gridPaddingRight),
+            container.rect.height * (1f - gridPaddingTop - gridPaddingBottom)
+        );
+
+        spacingScale = new Vector2(gridRect.width / gridDims, gridRect.height / gridDims);
+
         selectionCoords = new Vector2Int(0, 0);
         MoveSelection(Vector2Int.zero);
         selectedGem = null;
 
-        PositionGems();
+        PositionAllGems();
     }
 
     void Update()
     {
-        PositionGems();
-
         bool left = Keyboard.current.aKey.wasPressedThisFrame || Keyboard.current.leftArrowKey.wasPressedThisFrame;
         bool right = Keyboard.current.dKey.wasPressedThisFrame || Keyboard.current.rightArrowKey.wasPressedThisFrame;
         bool up = Keyboard.current.sKey.wasPressedThisFrame || Keyboard.current.downArrowKey.wasPressedThisFrame;
@@ -104,7 +110,7 @@ public class Gems : Minigame
                         {
                             if (!BoardClear())
                             {
-                                Debug.Log("The player has one");
+                                Debug.Log("Gems WON");
                             }
                         }
                     }
@@ -122,35 +128,36 @@ public class Gems : Minigame
         }
     }
 	
-	void PositionGem()
+	void PositionGem(Vector2Int coords)
 	{
-		
-	}
+        Gem g = gems[coords.y * gridDims + coords.x];
+        if(g == null)
+        {
+            Debug.Log("gem is null dangit");
+            return;
+        }
 
-    void PositionGems()
+        g.position.SetPosition(new Vector2(
+            gridRect.x + spacingScale.x * coords.x + spacingScale.x / 2,
+            gridRect.y + spacingScale.y * coords.y + spacingScale.y / 2
+        ));
+    }
+
+    void PositionAllGems()
     {
-        spacingScale = new Vector2(gridRect.width / gridDims, gridRect.height / gridDims);
-
-        // Calculate the bounds of the array of gems grid
-        gridRect = new Rect(
-            Mathf.Lerp(0, container.rect.width, gridPaddingLeft),
-            Mathf.Lerp(0, container.rect.height, gridPaddingTop),
-            container.rect.width * (1f - gridPaddingLeft - gridPaddingRight),
-            container.rect.height * (1f - gridPaddingTop - gridPaddingBottom)
-        );
-
+        Debug.Log("Positioning all gems");
         // Arrange all of the gems
         for(int i = 0; i < gridDims; i++)
         {   
             for(int j = 0; j < gridDims; j++)
             {
-                Gem g = gems[i * gridDims + j];
-
-                RectTransform gemRect = g.GetComponent<RectTransform>();
-                gemRect.localPosition = new Vector2(
-                    gridRect.x + spacingScale.x * j + spacingScale.x / 2,
-                    gridRect.y + spacingScale.y * i + spacingScale.y / 2
+                Gem g = gems[j * gridDims + i];
+                g.rectTransform.localPosition = new Vector3(
+                    gridRect.x + spacingScale.x * i + spacingScale.x / 2,
+                    gridRect.y + spacingScale.y * j + spacingScale.y / 2,
+                    0f
                 );
+                PositionGem(new Vector2Int(i, j));
             }
         }
     }
@@ -163,8 +170,7 @@ public class Gems : Minigame
             Math.Clamp(selectionCoords.y + delta.y, 0, gridDims - 1)
         );
 
-        // Move selection above new gem
-        selector.SetParent(gems[selectionCoords.y * gridDims + selectionCoords.x].transform);
+        selectorPosition.SetPosition(selectionCoords * spacingScale + gridRect.position + (spacingScale / 2f));
     }
 
     bool SwapGems(Vector2Int delta)
@@ -182,10 +188,8 @@ public class Gems : Minigame
         gems[selectionCoords.y * gridDims + selectionCoords.x] = gems[swapTarget.y * gridDims + swapTarget.x];
         gems[swapTarget.y * gridDims + swapTarget.x] = t;
 
-        gems[swapTarget.y * gridDims + swapTarget.x].SetMovement(new Vector2(delta.x * spacingScale.x, delta.y * spacingScale.y));
-        gems[selectionCoords.y * gridDims + selectionCoords.x].SetMovement(new Vector2(delta.x * -spacingScale.x, delta.y * -spacingScale.y));
-
-        PositionGems();
+        gems[swapTarget.y * gridDims + swapTarget.x].position.SetMovement(new Vector2(delta.x * spacingScale.x, delta.y * spacingScale.y));
+        gems[selectionCoords.y * gridDims + selectionCoords.x].position.SetMovement(new Vector2(delta.x * -spacingScale.x, delta.y * -spacingScale.y));
 
         return true;
     }

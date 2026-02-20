@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using System.Collections;
+using System;
 
 public class Scale : MonoBehaviour
 {
@@ -15,15 +17,17 @@ public class Scale : MonoBehaviour
     [Range(0.0f, 45.0f)]
     public float rightWeight;
 
-
     public float accelerationCoefficient;
     public float damping;
 
     private float velocity = 0.0f;
 
+    public float spiceTimerLength;
+    public float spiceTolerance;
+
     void Start()
     {
-        leftWeight = Random.Range(25f, 45f);
+        leftWeight = UnityEngine.Random.Range(25f, 45f);
     }
 
     void Update()
@@ -72,5 +76,25 @@ public class Scale : MonoBehaviour
 
         spicePile.SetNativeSize();
         rightWeight = value;
+
+        if (Math.Abs(leftWeight - rightWeight) < spiceTolerance)
+            StartCoroutine(SpiceTimer());
     }
+
+    IEnumerator SpiceTimer()
+    {
+        float timer = spiceTimerLength;
+        float initialWeight = rightWeight;
+
+        while (timer >= 0)
+        {
+            timer -= Time.deltaTime;
+            yield return null;
+        }
+
+        if (initialWeight == rightWeight)
+        {
+            Debug.Log("Spices WON");
+        }
+    } 
 }

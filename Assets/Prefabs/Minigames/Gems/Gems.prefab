@@ -319,6 +319,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EaseToOrigin
   easing: 0.05
+  targetPosition: {x: 0, y: 0, z: 0}
 --- !u!95 &6457241385570090098
 Animator:
   serializedVersion: 7
@@ -492,8 +493,8 @@ MonoBehaviour:
     width: 0
     height: 0
   gems: []
-  selector: {fileID: 1509264027981377428}
   selectAnimator: {fileID: 6457241385570090098}
+  selectorPosition: {fileID: 4285604147808996649}
   selectedGem: {fileID: 0}
 --- !u!222 &198859355250332843
 CanvasRenderer:

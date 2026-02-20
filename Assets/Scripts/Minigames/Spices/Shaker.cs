@@ -12,7 +12,12 @@ public class Shaker : MonoBehaviour
     public float flakesPerShake;
     private bool shakerLeft = false;
 
-    void Start() { }
+    private Animator animator;
+
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     void Update()
     {
@@ -25,8 +30,9 @@ public class Shaker : MonoBehaviour
         // Shaker must be opposite of the inputted direction
         if ((pressedLeft && !shakerLeft) || (pressedRight && shakerLeft))
         {
+            animator.Play(pressedLeft ? "ShakerLeft" : "ShakerRight");
+
             shakerLeft = pressedLeft;
-            rectTransform.localPosition += new Vector3(amplitude * (pressedLeft ? -1 : 1), 0f, 0f); // TODO: Change this to a nice animation
 
             scale.SetRightWeight(scale.rightWeight + Random.Range(0f, flakesPerShake));
             shakerParticles.Play();
