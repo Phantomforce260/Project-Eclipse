@@ -27,6 +27,10 @@ public class Shaker : MonoBehaviour
         bool pressedRight = Keyboard.current.rightArrowKey.wasPressedThisFrame
             || Keyboard.current.dKey.wasPressedThisFrame;
 
+		bool blowSpices = Keyboard.current.upArrowKey.isPressed 
+			|| Keyboard.current.wKey.wasPressedThisFrame;
+			
+
         // Shaker must be opposite of the inputted direction
         if ((pressedLeft && !shakerLeft) || (pressedRight && shakerLeft))
         {
@@ -37,5 +41,10 @@ public class Shaker : MonoBehaviour
             scale.SetRightWeight(scale.rightWeight + Random.Range(0f, flakesPerShake));
             shakerParticles.Play();
         }
+
+		if (blowSpices) 
+		{
+			scale.SetRightWeight(Mathf.Clamp(scale.rightWeight -= Time.deltaTime * 50, 0, 45));
+		}	
     }
 }
