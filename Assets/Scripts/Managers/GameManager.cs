@@ -9,10 +9,13 @@ public class GameManager : MonoBehaviour
     public static string Version { get; private set; }
 
     public static string CurrentScene { get; private set; }
-    
+
     private static GameManager instance;
 
     private static string previousScene;
+
+    public bool Vsync;
+    public int VsyncCount = 0;
 
     [Header("Scene Transitions")]
     [SerializeField] private Animator crossFade;
@@ -41,6 +44,21 @@ public class GameManager : MonoBehaviour
     {
         SaveManager.Load();
         crossFade.SetTrigger("Start");
+
+        if (CurrentScene.Equals("Depot") && !SaveManager.ActiveSave.SeenIntro)
+            UIManager.ToggleIntro(true);
+
+        SetvSync(SaveManager.ActiveSave.DoVsync);
+    }
+
+    /* SetvSync:
+     *    dovSync: The input value from the checkbox.
+     *    
+     * Toggles Vsync based on input. */
+    public void SetvSync(bool dovSync)
+    {
+        Debug.Log("Set Vsync: " + dovSync);
+        QualitySettings.vSyncCount = dovSync ? 1 : 0;
     }
 
     //public static void SetFrameRate() => Application.targetFrameRate = SaveManager.UserPrefs.TargetFrameRate;

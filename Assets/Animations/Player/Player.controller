@@ -154,7 +154,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0.1
   - m_ConditionMode: 4
     m_ConditionEvent: velocityX
-    m_EventTreshold: 0.1
+    m_EventTreshold: 0.8
   - m_ConditionMode: 1
     m_ConditionEvent: isGrounded
     m_EventTreshold: 0

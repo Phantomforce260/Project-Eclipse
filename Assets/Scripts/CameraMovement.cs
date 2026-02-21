@@ -11,14 +11,14 @@ public class CameraMovement : MonoBehaviour
 
     public Bounds CameraBounds;
 
-    private Vector2 currentPosition;
+    private Vector3 currentPosition;
 
-    public Vector2 CurrentPosition
+    public Vector3 CurrentPosition
     {
         get => currentPosition;
         set
         {
-            Vector2 fixedPos = value;
+            Vector3 fixedPos = value;
 
             if (value.x > CameraBounds.MaxX)
                 fixedPos = new Vector2(CameraBounds.MaxX, fixedPos.y);
@@ -32,7 +32,7 @@ public class CameraMovement : MonoBehaviour
             if (value.y < CameraBounds.MinY)
                 fixedPos = new Vector2(fixedPos.x, CameraBounds.MinY);
 
-            currentPosition = fixedPos;
+            currentPosition = new Vector3(fixedPos.x, fixedPos.y, -10);
         }
     }
 
@@ -48,8 +48,11 @@ public class CameraMovement : MonoBehaviour
 
     private void LateUpdate()
     {
-        Vector3 desiredPosition = Target.position + Offset;
-        CurrentPosition = Vector3.Lerp(transform.position, desiredPosition, SmoothSpeed * Time.deltaTime);
-        transform.position = new Vector3(CurrentPosition.x, CurrentPosition.y, -10);
+        CurrentPosition = new Vector3(
+            Target.position.x + Offset.x,
+            Target.position.y + Offset.y,
+            -10
+        );
+        transform.position = CurrentPosition;
     }
 }

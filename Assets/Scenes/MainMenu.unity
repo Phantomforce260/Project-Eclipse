@@ -550,7 +550,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: -0.724, y: 43.018, z: 5.667}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -7, y: -1}
+  m_AnchoredPosition: {x: -7, y: -0.99998474}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &798703974
@@ -837,7 +837,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 677.4009, y: -179.30707}
-  m_SizeDelta: {x: 139.9357, y: 263.2735}
+  m_SizeDelta: {x: 221.9313, y: 263.2735}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1285479796
 MonoBehaviour:
@@ -860,10 +860,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_NormalColor: {r: 0, g: 0, b: 0, a: 1}
+    m_HighlightedColor: {r: 0.4056604, g: 0.4056604, b: 0.4056604, a: 1}
+    m_PressedColor: {r: 0.21698111, g: 0.21698111, b: 0.21698111, a: 1}
+    m_SelectedColor: {r: 0.40392157, g: 0.40392157, b: 0.40392157, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -879,7 +879,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1285479797}
+  m_TargetGraphic: {fileID: 2139538348}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -955,6 +955,7 @@ GameObject:
   - component: {fileID: 1600769053}
   - component: {fileID: 1600769056}
   - component: {fileID: 1600769055}
+  - component: {fileID: 1600769057}
   m_Layer: 0
   m_Name: -------------Managers------------
   m_TagString: Untagged
@@ -974,9 +975,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cf7aea5a8020204681e22c456d5a3fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  Vsync: 0
+  VsyncCount: 0
   crossFade: {fileID: 1316993667}
   transitionTime: 1
-  Credits: {fileID: 805700359}
 --- !u!4 &1600769054
 Transform:
   m_ObjectHideFlags: 0
@@ -1005,6 +1007,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIManager
   Minigames: []
+  Pause: {fileID: 0}
+  Credits: {fileID: 805700359}
+  Welcome: {fileID: 0}
 --- !u!114 &1600769056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1022,6 +1027,18 @@ MonoBehaviour:
   audioMixer: {fileID: 0}
   sfxMaster: {fileID: 0}
   musicMaster: {fileID: 0}
+--- !u!114 &1600769057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600769052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51744ee854a916e49b7628ddeb83b4c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SaveManager
 --- !u!1 &1748564827
 GameObject:
   m_ObjectHideFlags: 0
@@ -1059,7 +1076,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -747.32153, y: -177.13275}
-  m_SizeDelta: {x: 87.5014, y: 250.6683}
+  m_SizeDelta: {x: 162.3786, y: 250.6683}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1748564829
 MonoBehaviour:
@@ -1082,10 +1099,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_NormalColor: {r: 0, g: 0, b: 0, a: 1}
+    m_HighlightedColor: {r: 0.4056604, g: 0.4056604, b: 0.4056604, a: 1}
+    m_PressedColor: {r: 0.21698111, g: 0.21698111, b: 0.21698111, a: 1}
+    m_SelectedColor: {r: 0.40392157, g: 0.40392157, b: 0.40392157, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1101,7 +1118,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1748564830}
+  m_TargetGraphic: {fileID: 1196743357}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -1114,7 +1131,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Depot
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1748564830
@@ -1374,7 +1391,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 686, y: 343}
-  m_SizeDelta: {x: 320, y: 60}
+  m_SizeDelta: {x: 320, y: 274.7572}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1847520091
 MonoBehaviour:
@@ -1397,10 +1414,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_NormalColor: {r: 0, g: 0, b: 0, a: 1}
+    m_HighlightedColor: {r: 0.4056604, g: 0.4056604, b: 0.4056604, a: 1}
+    m_PressedColor: {r: 0.21698111, g: 0.21698111, b: 0.21698111, a: 1}
+    m_SelectedColor: {r: 0.40392157, g: 0.40392157, b: 0.40392157, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1416,12 +1433,12 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1847520092}
+  m_TargetGraphic: {fileID: 798703974}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1600769053}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 1600769055}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: ToggleCredits
         m_Mode: 6
         m_Arguments:
@@ -1429,7 +1446,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Depot
           m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1847520092
@@ -1497,7 +1514,7 @@ RectTransform:
   m_GameObject: {fileID: 2139538346}
   m_LocalRotation: {x: -0.1873104, y: 0.30268583, z: -0.083785094, w: 0.93073964}
   m_LocalPosition: {x: 0, y: 0, z: 2}
-  m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
+  m_LocalScale: {x: 1.1, y: 1.0999998, z: 1.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1285479795}
@@ -1536,8 +1553,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1615,6 +1632,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1769232797}
     m_Modifications:
+    - target: {fileID: 5183293671991158264, guid: b46c9f5ed4fd8354c9b3adfdd3059c14, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -822.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5183293671991158264, guid: b46c9f5ed4fd8354c9b3adfdd3059c14, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 485.1
+      objectReference: {fileID: 0}
     - target: {fileID: 5290928049287323463, guid: b46c9f5ed4fd8354c9b3adfdd3059c14, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1698,7 +1723,7 @@ PrefabInstance:
     - target: {fileID: 7624552686687611463, guid: b46c9f5ed4fd8354c9b3adfdd3059c14, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1600769053}
+      objectReference: {fileID: 1600769055}
     - target: {fileID: 8200761495897563721, guid: b46c9f5ed4fd8354c9b3adfdd3059c14, type: 3}
       propertyPath: m_Name
       value: Credits
