@@ -5,27 +5,25 @@ public class Keycap : MonoBehaviour
 {
 	private RectTransform rectTransform;
 	private Animator animator;
-	private Anim
 	private TMP_Text textMeshPro;
 
-	public string contents;
 	public bool pressed;
 
     void Start()
     {
-        rectTransfor = GetComponent<RectTransform>();
+        rectTransform = GetComponent<RectTransform>();
 		animator = GetComponent<Animator>();
-		textMeshPro = GetComponent<TextMeshPro>();
+		textMeshPro = GetComponentInChildren<TMP_Text>();
 
-		textMeshPro.text = contents;
+		animator.Play(pressed ? "Press" : "Unpress");
     }
 
 	public void SetPressed(bool status)
 	{
-		if(status != pressed)
+		if(pressed != status)
 		{
-			pressed = status;
+			animator.Play(status ? "Press" : "Unpress");
 		}
-		animator.SetBool("Pressed", pressed)
+		pressed = status;
 	}
 }

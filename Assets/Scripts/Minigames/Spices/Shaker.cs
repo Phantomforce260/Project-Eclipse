@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,6 +12,10 @@ public class Shaker : MonoBehaviour
     public float amplitude;
     public float flakesPerShake;
     private bool shakerLeft = false;
+
+    public Keycap leftKeycap;
+    public Keycap rightKeycap;
+    private int keycapPresses = 0;
 
     private Animator animator;
 
@@ -29,12 +34,23 @@ public class Shaker : MonoBehaviour
 
 		bool blowSpices = Keyboard.current.upArrowKey.isPressed 
 			|| Keyboard.current.wKey.wasPressedThisFrame;
-			
 
         // Shaker must be opposite of the inputted direction
         if ((pressedLeft && !shakerLeft) || (pressedRight && shakerLeft))
         {
             animator.Play(pressedLeft ? "ShakerLeft" : "ShakerRight");
+
+            if (keycapPresses < 10)
+            {
+                leftKeycap.SetPressed(pressedLeft);
+                rightKeycap.SetPressed(pressedRight);
+            }
+            else
+            {
+                leftKeycap.SetPressed(true);
+                rightKeycap.SetPressed(true);
+            }
+            keycapPresses++;
 
             shakerLeft = pressedLeft;
 
