@@ -1,0 +1,572 @@
+fileFormatVersion: 2
+guid: 3a3a18f79cb4e74468b253449887572b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4691795727577567597
+    second: Liljimbob_0
+  - first:
+      213: 4431475955725497007
+    second: Liljimbob_1
+  - first:
+      213: -3979096880505940184
+    second: Liljimbob_2
+  - first:
+      213: 7119020839865772707
+    second: Liljimbob_3
+  - first:
+      213: -2590910669691585536
+    second: Liljimbob_4
+  - first:
+      213: 4336495333554283728
+    second: Liljimbob_5
+  - first:
+      213: -1518934162496379205
+    second: Liljimbob_6
+  - first:
+      213: 3712019779817615258
+    second: Liljimbob_7
+  - first:
+      213: 7183014442682824381
+    second: Liljimbob_8
+  - first:
+      213: -1444551059220318860
+    second: Liljimbob_9
+  - first:
+      213: -8764157948195267445
+    second: Liljimbob_10
+  - first:
+      213: -5805247970158415114
+    second: Liljimbob_11
+  - first:
+      213: -4677062658591861973
+    second: Liljimbob_12
+  - first:
+      213: 4949600017527290280
+    second: Liljimbob_13
+  - first:
+      213: 1396614206893490320
+    second: Liljimbob_14
+  - first:
+      213: 335099502804507782
+    second: Liljimbob_15
+  - first:
+      213: -5962243062206516556
+    second: Liljimbob_16
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Liljimbob_0
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 633
+        width: 179
+        height: 212
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39e2b0bd4a463eeb0800000000000000
+      internalID: -4691795727577567597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Liljimbob_1
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 654
+        width: 168
+        height: 264
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa2f3bb17e3cf7d30800000000000000
+      internalID: 4431475955725497007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Liljimbob_2
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 706
+        width: 170
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8271496287867c8c0800000000000000
+      internalID: -3979096880505940184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Liljimbob_3
+      rect:
+        serializedVersion: 2
+        x: 597
+        y: 658
+        width: 169
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3aa6dc45cb7dbc260800000000000000
+      internalID: 7119020839865772707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Liljimbob_4
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 633
+        width: 179
+        height: 221
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00c7340297c3b0cd0800000000000000
+      internalID: -2590910669691585536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Liljimbob_5
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 327
+        width: 168
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d464a6b7835e2c30800000000000000
+      internalID: 4336495333554283728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Liljimbob_6
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 327
+        width: 170
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb6a2374d69abeae0800000000000000
+      internalID: -1518934162496379205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Liljimbob_7
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 323
+        width: 179
+        height: 221
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9fa047925eb38330800000000000000
+      internalID: 3712019779817615258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Liljimbob_8
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 327
+        width: 170
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db63c9014913fa360800000000000000
+      internalID: 7183014442682824381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Liljimbob_9
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 33
+        width: 170
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4753247177ce3fbe0800000000000000
+      internalID: -1444551059220318860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Liljimbob_10
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 23
+        width: 176
+        height: 225
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8c9766d7c47f5680800000000000000
+      internalID: -8764157948195267445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Liljimbob_11
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 26
+        width: 174
+        height: 249
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f276a98abd9f6fa0800000000000000
+      internalID: -5805247970158415114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Liljimbob_12
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 26
+        width: 166
+        height: 263
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b23536aca4cb71fb0800000000000000
+      internalID: -4677062658591861973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Liljimbob_13
+      rect:
+        serializedVersion: 2
+        x: 758
+        y: 25
+        width: 170
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a93bf8edf280b440800000000000000
+      internalID: 4949600017527290280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Liljimbob_14
+      rect:
+        serializedVersion: 2
+        x: 935
+        y: 23
+        width: 180
+        height: 221
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 090862ab835c16310800000000000000
+      internalID: 1396614206893490320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Liljimbob_15
+      rect:
+        serializedVersion: 2
+        x: 1145
+        y: 26
+        width: 174
+        height: 249
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68c921de83386a400800000000000000
+      internalID: 335099502804507782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Liljimbob_16
+      rect:
+        serializedVersion: 2
+        x: 1348
+        y: 26
+        width: 169
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b2b4a4368bd14da0800000000000000
+      internalID: -5962243062206516556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Liljimbob_0: -4691795727577567597
+      Liljimbob_1: 4431475955725497007
+      Liljimbob_10: -8764157948195267445
+      Liljimbob_11: -5805247970158415114
+      Liljimbob_12: -4677062658591861973
+      Liljimbob_13: 4949600017527290280
+      Liljimbob_14: 1396614206893490320
+      Liljimbob_15: 335099502804507782
+      Liljimbob_16: -5962243062206516556
+      Liljimbob_2: -3979096880505940184
+      Liljimbob_3: 7119020839865772707
+      Liljimbob_4: -2590910669691585536
+      Liljimbob_5: 4336495333554283728
+      Liljimbob_6: -1518934162496379205
+      Liljimbob_7: 3712019779817615258
+      Liljimbob_8: 7183014442682824381
+      Liljimbob_9: -1444551059220318860
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
