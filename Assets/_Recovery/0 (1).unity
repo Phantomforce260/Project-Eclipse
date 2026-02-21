@@ -1027,13 +1027,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0bdc731cbf2f264084374b7cbe1476c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
-  soundEffects:
-  - name: ChipsTopping
-    clip: {fileID: 8300000, guid: ae87934faefec1d4fb3615f356160999, type: 3}
-    volume: 1
-    pitch: 0
-    loop: 0
-    source: {fileID: 0}
+  soundEffects: []
   music: []
   audioMixer: {fileID: 0}
   sfxMaster: {fileID: 0}
@@ -1152,7 +1146,6 @@ MonoBehaviour:
   - {fileID: 7813149624243035785, guid: 90162376b14779149bc0800b226fb138, type: 3}
   - {fileID: 2275893326136631409, guid: 95e92b7f02aabb640bd8f93eead20b37, type: 3}
   - {fileID: 8332884649415179728, guid: 98a9680d4b03e7cbdbc4eb1bd0c6f684, type: 3}
-  - {fileID: 2089230941429873399, guid: 8711266f50c9a8540a44d9271b9e8e44, type: 3}
 --- !u!224 &1800888569
 RectTransform:
   m_ObjectHideFlags: 0
