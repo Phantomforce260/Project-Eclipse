@@ -1035,8 +1035,8 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   music: []
-  audioMixer: {fileID: 0}
-  sfxMaster: {fileID: 0}
+  audioMixer: {fileID: 24100000, guid: d8ea915592d5e024b8b042fbe36936d4, type: 2}
+  sfxMaster: {fileID: 24300002, guid: d8ea915592d5e024b8b042fbe36936d4, type: 2}
   musicMaster: {fileID: 0}
 --- !u!4 &1541974583
 Transform:
