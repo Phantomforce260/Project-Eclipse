@@ -8,6 +8,7 @@ public class PizzaSelectable : MonoBehaviour
     public Sprite listSprite;
 
     public GameObject topping;
+    public string soundEffectName;
 
     void Start()
     {

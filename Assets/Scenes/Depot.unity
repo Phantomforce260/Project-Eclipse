@@ -2317,13 +2317,199 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
   soundEffects:
-  - name: ChipsTopping
+  - name: CrunchyTopping
     clip: {fileID: 8300000, guid: ae87934faefec1d4fb3615f356160999, type: 3}
     volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: JarTopping
+    clip: {fileID: 8300000, guid: 4cb00de1857bcad4b8d298994f057549, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: LeafyTopping
+    clip: {fileID: 8300000, guid: 7743e6febda4c2f40931e40548fbabdd, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SquishyTopping
+    clip: {fileID: 8300000, guid: dc68a9229f0a72142ae4ec9a0ab43ece, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BottleTopping1
+    clip: {fileID: 8300000, guid: 76b3a64c22b58ab48b5510f33c745a6c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BottleTopping2
+    clip: {fileID: 8300000, guid: 17bb586bbab80384b98291f4bd971b52, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BottleTopping3
+    clip: {fileID: 8300000, guid: 7c69fbbe55eaa3b448983a95a29c0d67, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Placing1
+    clip: {fileID: 8300000, guid: 23564fb6749873d4c9d90065aa6104b9, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Placing2
+    clip: {fileID: 8300000, guid: 4751e3f813226cd40934a4d1f002ddd4, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Placing3
+    clip: {fileID: 8300000, guid: 0d7b3c049c50aed408567014c7b51731, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: GemConnect1
+    clip: {fileID: 8300000, guid: 4e8004b983e6ae14496fc1bfb380189a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: GemConnect2
+    clip: {fileID: 8300000, guid: 164250f4a2df52446a69025ce17df39f, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: GemConnect3
+    clip: {fileID: 8300000, guid: 167fa70d8ea7ffa48b4d878fd9fd0c11, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: GemConnect4
+    clip: {fileID: 8300000, guid: 167fa70d8ea7ffa48b4d878fd9fd0c11, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: GemConnect6
+    clip: {fileID: 8300000, guid: 64eee1f215f3a9443aa8bf0fc53509f7, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: GemConnect5
+    clip: {fileID: 8300000, guid: bd4fdc70c5557ac4abdde525e9df2620, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: GemMove
+    clip: {fileID: 8300000, guid: 83e7ef1c2929d6b4fbc20837433949ab, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: GemSelect
+    clip: {fileID: 8300000, guid: 83a8f58f59f160249ba36ac8b4da28d5, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Blowing
+    clip: {fileID: 8300000, guid: c95f2dd8fb996c94583b04eb19fe6434, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Creaking1
+    clip: {fileID: 8300000, guid: 82a890b6c7d761e4c82a06cae6057888, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Creaking2
+    clip: {fileID: 8300000, guid: 1aeacec93d1eeb047a0de36046593852, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Creaking3
+    clip: {fileID: 8300000, guid: 28396e441cf87f340ac7f5395b0f90f2, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Creaking4
+    clip: {fileID: 8300000, guid: 136b1343ba3ac45469eb3c97816802cd, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Creaking5
+    clip: {fileID: 8300000, guid: af873704a92ebdc478d8ad82eced036e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Creaking6
+    clip: {fileID: 8300000, guid: b18621491b2ab5c4093981508b111352, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Shaker1
+    clip: {fileID: 8300000, guid: a47c51fbfda7a604c81eb29e32f06f36, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Shaker2
+    clip: {fileID: 8300000, guid: 52292004ae8a80449a1331227bd7174f, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Shaker3
+    clip: {fileID: 8300000, guid: b21570fe12ee09b4aa22dd684f679964, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Shaker4
+    clip: {fileID: 8300000, guid: e87ea078c3039ed48a1dc0d784f2ced8, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  music:
+  - name: 
+    clip: {fileID: 0}
+    volume: 0
     pitch: 0
     loop: 0
     source: {fileID: 0}
-  music: []
+  - name: 
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
   audioMixer: {fileID: 24100000, guid: d8ea915592d5e024b8b042fbe36936d4, type: 2}
   sfxMaster: {fileID: 24300002, guid: d8ea915592d5e024b8b042fbe36936d4, type: 2}
   musicMaster: {fileID: 0}
@@ -2354,11 +2540,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51744ee854a916e49b7628ddeb83b4c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SaveManager
---- !u!95 &1542512419 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 1761421339752515321, guid: b46c9f5ed4fd8354c9b3adfdd3059c14, type: 3}
-  m_PrefabInstance: {fileID: 1073787365034582265}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1542512420 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5290928049287323463, guid: b46c9f5ed4fd8354c9b3adfdd3059c14, type: 3}
@@ -2765,6 +2946,10 @@ MonoBehaviour:
   - {fileID: 2275893326136631409, guid: 95e92b7f02aabb640bd8f93eead20b37, type: 3}
   - {fileID: 8332884649415179728, guid: 98a9680d4b03e7cbdbc4eb1bd0c6f684, type: 3}
   - {fileID: 2089230941429873399, guid: 8711266f50c9a8540a44d9271b9e8e44, type: 3}
+  Pause: {fileID: 0}
+  Credits: {fileID: 0}
+  Welcome: {fileID: 0}
+  JKey: {fileID: 0}
 --- !u!224 &1800888569
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3090,11 +3275,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6ef09f88231d764fa87f7e4c68f33c0, type: 3}
---- !u!95 &5731291072047332243 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 6490194857092778301, guid: f6ef09f88231d764fa87f7e4c68f33c0, type: 3}
-  m_PrefabInstance: {fileID: 4180403969185439571}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8117108063550002323
 PrefabInstance:
   m_ObjectHideFlags: 0

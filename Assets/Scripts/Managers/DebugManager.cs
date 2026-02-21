@@ -15,10 +15,15 @@ public class DebugManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Keyboard.current.commaKey.wasPressedThisFrame)
+        {
+            AudioManager.PlaySFX("CrunchyTopping");
+        }
+
         if (Keyboard.current.periodKey.wasPressedThisFrame)
         {
             Debug.Log("key pressed");
-            string mg = "Pizza";
+            string mg = "Spices";
             Debug.Log("Starting minigame: " + mg);
             UIManager.CreateMinigame(mg);
         }

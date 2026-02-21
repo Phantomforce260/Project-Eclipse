@@ -60,6 +60,7 @@ public class Pizza : Minigame
 
         if(leftPressed || rightPressed)
         {
+            AudioManager.PlaySFX("Placing" + UnityEngine.Random.Range(1, 4));
             toppings[selector].SetSelection(false);
             selector = Math.Clamp(selector + (rightPressed ? 1 : 0) + (leftPressed ? -1 : 0), 0, toppings.Length - 1);
         }
@@ -73,10 +74,9 @@ public class Pizza : Minigame
             {
                 if (chosen[i].name == toppings[selector].name)
                 {
-                    Debug.Log("Playing sfx");
-                    AudioManager.PlaySFX("ChipsTopping");
                     foundTopping = true;
                     chosen[i].SetTopping(true);
+                    AudioManager.PlaySFX(chosen[i].soundEffectName);
                     chosen = CopyWithout(chosen, i);
                     break;
                 }

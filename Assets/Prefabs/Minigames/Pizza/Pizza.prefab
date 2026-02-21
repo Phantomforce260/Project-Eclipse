@@ -138,6 +138,7 @@ MonoBehaviour:
   selection: {fileID: 5128775212467867846}
   listSprite: {fileID: -431797579490579562, guid: 15001675f24086a419c7ed1b163cc51c, type: 3}
   topping: {fileID: 6860041816161565197}
+  soundEffectName: BottleTopping2
 --- !u!1 &703059350480528317
 GameObject:
   m_ObjectHideFlags: 0
@@ -673,6 +674,7 @@ MonoBehaviour:
   selection: {fileID: 5449386537544029255}
   listSprite: {fileID: -5196480314518052078, guid: 15001675f24086a419c7ed1b163cc51c, type: 3}
   topping: {fileID: 6447399136786036260}
+  soundEffectName: JarTopping
 --- !u!1 &2359728619142224730
 GameObject:
   m_ObjectHideFlags: 0
@@ -765,6 +767,7 @@ MonoBehaviour:
   selection: {fileID: 9222082233186489984}
   listSprite: {fileID: -5670611702303752676, guid: 15001675f24086a419c7ed1b163cc51c, type: 3}
   topping: {fileID: 2975536777396022008}
+  soundEffectName: BottleTopping3
 --- !u!1 &2975536777396022008
 GameObject:
   m_ObjectHideFlags: 0
@@ -1070,6 +1073,7 @@ MonoBehaviour:
   selection: {fileID: 5714952666308898979}
   listSprite: {fileID: -2513750971434267929, guid: 97a5794cd6a4da3429949a54ac3ab147, type: 3}
   topping: {fileID: 6168750910829246360}
+  soundEffectName: CrunchyTopping
 --- !u!1 &4664748313728192372
 GameObject:
   m_ObjectHideFlags: 0
@@ -1387,6 +1391,7 @@ MonoBehaviour:
   selection: {fileID: 8856711648522976482}
   listSprite: {fileID: -2449591561013552763, guid: 15001675f24086a419c7ed1b163cc51c, type: 3}
   topping: {fileID: 8259378244088609888}
+  soundEffectName: CrunchyTopping
 --- !u!1 &6168750910829246360
 GameObject:
   m_ObjectHideFlags: 0
@@ -2125,6 +2130,7 @@ MonoBehaviour:
   selection: {fileID: 7269295393719936299}
   listSprite: {fileID: 8720604468809159126, guid: 15001675f24086a419c7ed1b163cc51c, type: 3}
   topping: {fileID: 9148530786578055685}
+  soundEffectName: JarTopping
 --- !u!1 &7169141665065061439
 GameObject:
   m_ObjectHideFlags: 0
@@ -2442,6 +2448,7 @@ MonoBehaviour:
   selection: {fileID: 6776078642517248367}
   listSprite: {fileID: 8796499958254778168, guid: 15001675f24086a419c7ed1b163cc51c, type: 3}
   topping: {fileID: 8091928869694504552}
+  soundEffectName: SquishyTopping
 --- !u!1 &7821072402835994095
 GameObject:
   m_ObjectHideFlags: 0
@@ -2534,6 +2541,7 @@ MonoBehaviour:
   selection: {fileID: 5778228161866956029}
   listSprite: {fileID: 4830219810074551288, guid: 15001675f24086a419c7ed1b163cc51c, type: 3}
   topping: {fileID: 1282945559209700562}
+  soundEffectName: LeafyTopping
 --- !u!1 &7877545240345029321
 GameObject:
   m_ObjectHideFlags: 0
@@ -2660,6 +2668,7 @@ MonoBehaviour:
   selector: 0
   listContainer: {fileID: 1803309005275442133}
   toppingCount: 4
+  chosen: []
 --- !u!1 &8091928869694504552
 GameObject:
   m_ObjectHideFlags: 0
@@ -3098,6 +3107,7 @@ MonoBehaviour:
   selection: {fileID: 8837933528517325507}
   listSprite: {fileID: -2962330253262605572, guid: 15001675f24086a419c7ed1b163cc51c, type: 3}
   topping: {fileID: 7169141665065061439}
+  soundEffectName: BottleTopping1
 --- !u!1 &8829248674172575232
 GameObject:
   m_ObjectHideFlags: 0

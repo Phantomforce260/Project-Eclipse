@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO.Compression;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -33,6 +34,8 @@ public class Gems : Minigame
     public EaseToOrigin selectorPosition;
 
     public Gem selectedGem;
+
+    private int connectionCount = 1;
 
     private void Awake()
     {
@@ -92,6 +95,12 @@ public class Gems : Minigame
 
         bool select = Keyboard.current.jKey.isPressed || Keyboard.current.zKey.isPressed;
 
+        if(selectedGem == null && select)
+        {
+            AudioManager.PlaySFX("GemSelect");
+        }
+        
+        if(!select) selectedGem = null;
         selectAnimator.SetBool("SelectPressed", select);
         if (select)
         {
@@ -104,14 +113,14 @@ public class Gems : Minigame
                 if (successfulSwap)
                 {
                     bool successfulRemoval = RemoveLine();
+                    RemoveLine();
                     if (successfulRemoval)
                     {
-                        if (RemoveLine())
+                        AudioManager.PlaySFX("GemConnect" + connectionCount);
+                        connectionCount++;
+                        if (!BoardClear())
                         {
-                            if (!BoardClear())
-                            {
-                                Debug.Log("Gems WON");
-                            }
+                            Debug.Log("Gems WON");
                         }
                     }
 
@@ -182,6 +191,8 @@ public class Gems : Minigame
         {
             return false;
         }
+
+        AudioManager.PlaySFX("GemMove");
 
         // Swap the two gems
         Gem t = gems[selectionCoords.y * gridDims + selectionCoords.x];
