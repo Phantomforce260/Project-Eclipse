@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using System.Collections.Generic;
 
 public class UIManager : MonoBehaviour
@@ -10,8 +11,13 @@ public class UIManager : MonoBehaviour
 
     private static UIManager instance;
 
+    [SerializeField] private Animator Pause;
+    [SerializeField] private Animator Credits;
+
     private Dictionary<string, Minigame> miniGameMap = new();
     private Transform mainCanvas;
+
+    private bool pauseActive;
 
     private void Awake()
     {
@@ -22,6 +28,9 @@ public class UIManager : MonoBehaviour
             miniGameMap.Add(game.name, game);
 
         mainCanvas = transform;
+
+        Pause.gameObject.SetActive(true);
+        Credits.gameObject.SetActive(true);
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -32,8 +41,10 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
+
+    public void TogglePause(bool toggle) => Pause.Play(toggle ? "CreditsIn" : "CreditsOut");
+    public void ToggleCredits(bool toggle) => Credits.Play(toggle ? "CreditsIn" : "CreditsOut");
 
     public static GameObject CreateMinigame(string name)
     {

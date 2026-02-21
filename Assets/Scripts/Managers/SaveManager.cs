@@ -31,10 +31,7 @@ public class SaveManager : MonoBehaviour
             Debug.Log("JSON is too long");
     }
 
-    public static void Load()
-    {
-        //instance.LoadInstance();
-    }
+    public static void Load() => instance.LoadInstance();
 
     private void LoadInstance()
     {
