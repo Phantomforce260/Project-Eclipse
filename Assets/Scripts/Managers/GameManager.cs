@@ -12,7 +12,6 @@ public class GameManager : MonoBehaviour
 {
     /* The GameManager is designed to handle scene transitions and overall game settings, like the framerate, and managing URLS. */
 
-
     public static string Version { get; private set; }
 
     public static string CurrentScene { get; private set; }
@@ -46,7 +45,7 @@ public class GameManager : MonoBehaviour
      * The screen starts out black then fades out. Finally, set the target frame rate. This ultimately depends on machine performance. */
     private void Start()
     {
-        //SaveManager.Load();
+        SaveManager.Load();
         crossFade.SetTrigger("Start");
     }
 
@@ -61,7 +60,7 @@ public class GameManager : MonoBehaviour
     private void LoadLevelInstance(string sceneName)
     {
         AudioManager.StopMusic();
-        //SaveManager.Save();
+        SaveManager.Save();
         Time.timeScale = 1;
         StartCoroutine(StartSceneTransition(sceneName));
     }
