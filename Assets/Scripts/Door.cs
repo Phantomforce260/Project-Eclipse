@@ -6,6 +6,7 @@ using System.Linq;
 
 public class Door : MonoBehaviour
 {
+    private float detectionRange = 1.5f;
     public static List<Func<bool>> DoorRanges = new();
 
     public string MinigameName;
@@ -58,5 +59,5 @@ public class Door : MonoBehaviour
         DoorNotif.SetActive(false);
     }
 
-    private bool PlayerInRange() => Vector3.Distance(transform.position, DepotController.Position) < 1f;
+    private bool PlayerInRange() => Vector3.Distance(transform.position, DepotController.Position) < detectionRange;
 }
