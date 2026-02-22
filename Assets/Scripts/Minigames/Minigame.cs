@@ -17,6 +17,7 @@ public abstract class Minigame : MonoBehaviour
     protected void Initialize()
     {
         /* Should be called by Awake() in child classes. */
+        DepotController.MovementEnabled = false;
         OnGameStart.Invoke();
     }
 
@@ -24,6 +25,7 @@ public abstract class Minigame : MonoBehaviour
     {
         /* Call this to end a minigame. */
         UIManager.IsMiniGameActive = false;
+        DepotController.MovementEnabled = true;
         OnGameFinish.Invoke();
         Destroy(gameObject);
     }

@@ -27,6 +27,8 @@ public class Mirrors : Minigame
 
     public Vector2Int[] publicPathCoords;
 
+    private void Awake() => Initialize();
+
     void Start()
     {
         mirrorTiles = new MirrorTile[gridDims.x * gridDims.y];

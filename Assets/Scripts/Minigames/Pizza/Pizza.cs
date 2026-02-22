@@ -16,6 +16,8 @@ public class Pizza : Minigame
 
     public PizzaSelectable[] chosen;
 
+    private void Awake() => Initialize();
+
     void Start()
     {
         listImages = listContainer.GetComponentsInChildren<Image>();

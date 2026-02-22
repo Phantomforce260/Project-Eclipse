@@ -8,15 +8,10 @@ public class Spices : Minigame
 
     public Scale scale;
 
-    private void Awake()
-    {
-        Initialize();
-    }
+    private void Awake() => Initialize();
 
     void Start()
     {
         OKButton.onClick.AddListener(() => Finish());
     }
-
-    void Update() { }
 }

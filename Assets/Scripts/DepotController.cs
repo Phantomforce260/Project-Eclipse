@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -5,13 +8,17 @@ public class DepotController : MonoBehaviour
 {
     public static bool MovementEnabled = true;
 
-    public static Vector2 Position => playerTransform.position;
+    public static Vector2 Position => instance.transform.position;
+
+    public static Inventory PlayerInventory => instance.playerInventory;
 
     public int JumpCount { get; private set; }
 
     private const float fallVelocity = -15.5f;
     private const string JumpKey = "isJumping";
     private const string JumpInput = "Jump";
+
+    private static DepotController instance;
 
     [Header("Horizontal Movement")]
     [Range(1, 50), SerializeField] private float baseVelocity = 10f;
@@ -23,8 +30,7 @@ public class DepotController : MonoBehaviour
     [Range(0.01f, 0.5f), SerializeField] private float coyoteTime = 0.1f;
     [Range(0.01f, 0.5f), SerializeField] private float jumpBuffer = 0.1f;
 
-    private static Transform playerTransform;
-
+    private Inventory playerInventory;
     private PlayerInputActions inputActions;
 
     private new Rigidbody2D rigidbody;
@@ -47,10 +53,17 @@ public class DepotController : MonoBehaviour
     private bool isGrounded;
     private bool isFalling;
 
+    [Serializable]
+    public struct Inventory {
+        public List<string> Packages;
+    }
+
     private void Awake()
     {
-        if (playerTransform == null)
-            playerTransform = transform;
+        playerInventory.Packages = new(3);
+
+        if (instance == null)
+            instance = this;
 
         inputActions = new PlayerInputActions();
         animator = GetComponent<Animator>();
@@ -81,9 +94,11 @@ public class DepotController : MonoBehaviour
         isGrounded = IsGrounded();
         isFalling = rigidbody.linearVelocityY < fallVelocity;
 
-        bool jumpInput = Input.GetButtonDown(JumpInput);
+        bool jumpInput = MovementEnabled && Input.GetButtonDown(JumpInput);
+        moveInput = MovementEnabled
+            ? inputActions.Player.Move.ReadValue<Vector2>()
+            : Vector2.zero;
 
-        moveInput = inputActions.Player.Move.ReadValue<Vector2>();
         spriteRenderer.flipX = currentVelocityX < 0;
 
         animator.SetBool("isGrounded", isGrounded);
@@ -141,8 +156,6 @@ public class DepotController : MonoBehaviour
 
         currentVelocityX = Mathf.Lerp(currentVelocityX, targetVelocityX, acceleration * Time.deltaTime);
         rigidbody.linearVelocity = new Vector2(currentVelocityX, rigidbody.linearVelocityY);
-
-        //Debug.Log("Input: " + moveInput.x + ", target: " + targetVelocityX + ", current: " + currentVelocityX + ", rigidbody: " + rigidbody.linearVelocity.x);
     }
 
     private void Jump()

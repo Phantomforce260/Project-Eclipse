@@ -17,8 +17,6 @@ public class Gem : MonoBehaviour
 		position = GetComponent<EaseToOrigin>();
 	}
 
-	void Update() { }
-
 	public void Remove()
 	{
 		animator.Play("Gem");

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.IO.Compression;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -17,7 +16,15 @@ public class Gems : Minigame
     public float gridPaddingBottom;
 
     public Rect gridRect;
+
+    public List<Gem> gems;
+    public Animator selectAnimator;
+    public EaseToOrigin selectorPosition;
+    public Gem selectedGem;
+
+    private Vector2Int selectionCoords;
     private Vector2 spacingScale;
+    private int connectionCount = 1;
 
     public enum GemType
     {
@@ -27,15 +34,6 @@ public class Gems : Minigame
         Heart,
         Green
     };
-    public List<Gem> gems;
-
-    public Animator selectAnimator;
-    private Vector2Int selectionCoords;
-    public EaseToOrigin selectorPosition;
-
-    public Gem selectedGem;
-
-    private int connectionCount = 1;
 
     private void Awake()
     {
