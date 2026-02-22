@@ -16,11 +16,13 @@ public class Slide : MonoBehaviour
     {
         img.sprite = seal;
         anim.Play("SlideLeft", 0, 0);
+        AudioManager.PlaySFX("SealSwoosh");
     }
 
     public void SlideRight(Sprite seal)
     {
         img.sprite = seal;
         anim.Play("SlideRight", 0, 0);
+        AudioManager.PlaySFX("SealSwoosh");
     }
 }

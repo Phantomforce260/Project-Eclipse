@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 
-public enum TrueSealColor
+public enum SealColor
 {
     Purple,
     Yellow
@@ -19,23 +19,24 @@ public class Sort : Minigame
     public Sprite yellSeal;
 
     // make list of seals
-    public List<TrueSealColor> queue = new List<TrueSealColor>();
+    public List<SealColor> queue = new List<SealColor>();
     public int numSeals = 20;
     int count = 0;
 
     private void Awake()
     {
         Initialize();
+        OnGameFinish.AddListener(() => DepotController.PlayerInventory.Packages.Remove("Sort"));
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        TrueSealColor newSeal;
+        SealColor newSeal;
         // generate seals for seal list 
         for (int i = 0; i < numSeals; i++)
         {
-            newSeal = (Random.value > 0.5f) ? TrueSealColor.Purple : TrueSealColor.Yellow;
+            newSeal = (Random.value > 0.5f) ? SealColor.Purple : SealColor.Yellow;
             queue.Add(newSeal);
         }
         Rerender();
@@ -47,7 +48,7 @@ public class Sort : Minigame
         // handle input
         if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
         {
-            if (queue[0] == TrueSealColor.Purple)
+            if (queue[0] == SealColor.Purple)
                 slide.SlideLeft(purpSeal);
             else    
                 slide.SlideLeft(yellSeal);
@@ -56,7 +57,7 @@ public class Sort : Minigame
 
         if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
         {
-            if (queue[0] == TrueSealColor.Purple)
+            if (queue[0] == SealColor.Purple)
                 slide.SlideRight(purpSeal);
             else    
                 slide.SlideRight(yellSeal);
@@ -67,12 +68,18 @@ public class Sort : Minigame
     // remove seal
     public void Yoink(bool wentLeft)
     {
-        TrueSealColor seal = queue[0];
+        SealColor seal = queue[0];
         queue.RemoveAt(0);
-        if ((wentLeft && seal == TrueSealColor.Purple) || (!wentLeft && seal == TrueSealColor.Yellow)) // if wrong
+        if ((wentLeft && seal == SealColor.Purple) || (!wentLeft && seal == SealColor.Yellow)) // if wrong
+        {
+            AudioManager.PlaySFX("CorrectSeal");
             count++;
-        else     
+        }
+        else
+        {
+            AudioManager.PlaySFX("WrongSeal");
             queue.Add(seal);
+        }
         
         if (count == numSeals)
             Finish();
@@ -90,7 +97,7 @@ public class Sort : Minigame
                 // Enable image
                 slots[i].color = Color.white;
 
-                if (queue[i] == TrueSealColor.Purple)
+                if (queue[i] == SealColor.Purple)
                     slots[i].sprite = purpSeal;
                 else
                     slots[i].sprite = yellSeal;
