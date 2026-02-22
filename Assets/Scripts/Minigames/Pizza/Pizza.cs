@@ -91,9 +91,7 @@ public class Pizza : Minigame
             }
 
             if(chosen.Length == 0)
-            {
-                Debug.Log("Pizza WON");
-            }
+                Finish();
         }
     }
 

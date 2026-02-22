@@ -921,6 +921,41 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78908ffdc16115d418c8253dd6e759cd, type: 3}
+--- !u!1 &337696187
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 337696188}
+  m_Layer: 5
+  m_Name: Minigames
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &337696188
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337696187}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1800888569}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &372408708
 GameObject:
   m_ObjectHideFlags: 0
@@ -2712,13 +2747,13 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Gems
     clip: {fileID: 8300000, guid: e939e570b949aaa45b1b460d2c4d813e, type: 3}
-    volume: 1
+    volume: 0
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: Pizza
     clip: {fileID: 8300000, guid: 442a9ce80c5bdb743bd66a93671cb011, type: 3}
-    volume: 1
+    volume: 0
     pitch: 1
     loop: 1
     source: {fileID: 0}
@@ -2730,19 +2765,19 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Mirrors
     clip: {fileID: 8300000, guid: 2642a6803c329e44a8531bdf367f4ae2, type: 3}
-    volume: 1
+    volume: 0
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: Spices
     clip: {fileID: 8300000, guid: 829a93b044320714eaca2cf1654752a7, type: 3}
-    volume: 1
+    volume: 0
     pitch: 1
     loop: 1
     source: {fileID: 0}
-  - name: Sorting
+  - name: Sort
     clip: {fileID: 8300000, guid: 74685a750795bf943a3191e0b5943446, type: 3}
-    volume: 1
+    volume: 0
     pitch: 1
     loop: 1
     source: {fileID: 0}
@@ -3197,6 +3232,7 @@ MonoBehaviour:
   Welcome: {fileID: 422624480}
   JKey: {fileID: 1620632171}
   Notif: {fileID: 128553672}
+  MinigameParent: {fileID: 337696188}
 --- !u!224 &1800888569
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3212,6 +3248,7 @@ RectTransform:
   - {fileID: 1026564772}
   - {fileID: 1620632173}
   - {fileID: 128553671}
+  - {fileID: 337696188}
   - {fileID: 2203762950603907629}
   - {fileID: 1542512420}
   - {fileID: 934457867}

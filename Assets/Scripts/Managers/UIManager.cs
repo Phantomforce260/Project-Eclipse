@@ -21,6 +21,8 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI JKey;
     public TextMeshProUGUI Notif;
 
+    public Transform MinigameParent;
+
     private Dictionary<string, Minigame> miniGameMap = new();
     private Transform mainCanvas;
 
@@ -109,7 +111,7 @@ public class UIManager : MonoBehaviour
         if (instance.miniGameMap.TryGetValue(name, out var minigame))
         {
             IsMiniGameActive = true;
-            return Instantiate(minigame.gameObject, MainCanvas);
+            return Instantiate(minigame.gameObject, instance.MinigameParent);
         }
         else
         {
