@@ -44,7 +44,8 @@ public class Mirrors : Minigame
     {
         UIManager.SetNotif(
             "<HOLD> Z + WASD",
-            Color.black
+            Color.black,
+            20
         );
         Initialize();
         OnGameFinish.AddListener(() => DepotController.PlayerInventory.Packages.Remove("Mirrors"));
@@ -115,9 +116,7 @@ public class Mirrors : Minigame
         bool movement = direction.sqrMagnitude != 0;
 
         if(movement)
-        {
             MoveSelection(direction);
-        }
 
         PathLazer();
         if (clock || cClock)
@@ -134,9 +133,7 @@ public class Mirrors : Minigame
     void PathLazer()
     {
         foreach (var piece in lazerPath)
-        {
             Destroy(piece.gameObject);
-        }
 
         lazerPath = new List<RectTransform>();
 
@@ -196,6 +193,17 @@ public class Mirrors : Minigame
 
                 piece.localPosition = worldPos;
                 piece.localRotation = Quaternion.Euler(0f, 0f, MirrorTile.DirectionToRotation(mirror.direction));
+            }
+
+            if (current == sink)
+            {
+                RectTransform endLazer = Instantiate(lazer, container).GetComponent<RectTransform>();
+                endLazer.localPosition = (sink + Vector2Int.right) * gridScale + gridRect.position + (gridScale / 2f);
+                endLazer.localRotation = Quaternion.Euler(0f, 0f, 0f);
+                lazerPath.Add(endLazer);
+
+                Invoke(nameof(Finish), 1f);
+                break;
             }
 
             current += dir;

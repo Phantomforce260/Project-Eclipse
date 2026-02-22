@@ -20,7 +20,8 @@ public class Pizza : Minigame
     {
         UIManager.SetNotif(
             "WASD to Move\nZ to Select",
-            Color.black
+            Color.black,
+            20
         );
         Initialize();
         OnGameFinish.AddListener(() => DepotController.PlayerInventory.Packages.Remove("Pizza"));
@@ -95,7 +96,7 @@ public class Pizza : Minigame
                 Restart();
 
             if(chosen.Length == 0)
-                Finish();
+                Invoke(nameof(Finish), 1f);
         }
     }
 

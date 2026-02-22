@@ -39,7 +39,8 @@ public class Gems : Minigame
     {
         UIManager.SetNotif(
             "<Hold> Z + WASD",
-            Color.white
+            Color.white,
+            20
         );
         Initialize();
 
@@ -59,12 +60,8 @@ public class Gems : Minigame
         gems = new List<Gem>();
 
         for(int i = 0; i < gridDims; i++)
-        {   
             for(int j = 0; j < gridDims; j++)
-            {
                 gems.Add(Instantiate(gemPrefabs[i], container.transform).GetComponent<Gem>());
-            }
-        }
 
         ShuffleGems();
 
@@ -124,15 +121,11 @@ public class Gems : Minigame
                         AudioManager.PlaySFX("GemConnect" + connectionCount);
                         connectionCount++;
                         if (BoardClear())
-                        {
-                            Debug.Log("Gems WON");
-                            Finish();
-                        }
+                            Invoke(nameof(Finish), 1f);
                     }
 
                     MoveSelection(direction);
                 }
-
                 selectedGem = null;
             }
         }

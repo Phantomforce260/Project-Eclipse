@@ -150,12 +150,14 @@ public class UIManager : MonoBehaviour
 
     public static void SetNotif(string message, float timer = 5f)
     {
+        instance.CancelInvoke();
         instance.Notif.text = message;
         instance.Notif.gameObject.SetActive(true);
         instance.Invoke(nameof(HideNotif), timer);
     }
     public static void SetNotif(string message, Color textColor, float timer = 5f)
     {
+        instance.CancelInvoke();
         instance.Notif.text = message;
         instance.Notif.color = textColor;
         instance.Notif.gameObject.SetActive(true);
