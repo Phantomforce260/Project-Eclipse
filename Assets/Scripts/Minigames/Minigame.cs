@@ -12,10 +12,11 @@ public abstract class Minigame : MonoBehaviour
     [Space(10)]
     public UnityEvent OnGameFinish = new();
 
+    public string musicName;
+
     protected void Initialize()
     {
         /* Should be called by Awake() in child classes. */
-        Debug.Log("Starting minigame");
         OnGameStart.Invoke();
     }
 

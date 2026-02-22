@@ -15,6 +15,11 @@ public class DebugManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Keyboard.current.commaKey.wasPressedThisFrame)
+        {
+            AudioManager.PlaySFX("CrunchyTopping");
+        }
+
         if (Keyboard.current.periodKey.wasPressedThisFrame)
         {
             Debug.Log("key pressed");

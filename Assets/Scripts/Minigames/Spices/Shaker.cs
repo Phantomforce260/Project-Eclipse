@@ -33,12 +33,28 @@ public class Shaker : MonoBehaviour
             || Keyboard.current.dKey.wasPressedThisFrame;
 
 		bool blowSpices = Keyboard.current.upArrowKey.isPressed 
-			|| Keyboard.current.wKey.wasPressedThisFrame;
+			|| Keyboard.current.wKey.isPressed;
+
+        if (Keyboard.current.upArrowKey.wasPressedThisFrame
+			|| Keyboard.current.wKey.wasPressedThisFrame)
+        {
+            AudioManager.PlaySFX("Blowing");
+        }
 
         // Shaker must be opposite of the inputted direction
         if ((pressedLeft && !shakerLeft) || (pressedRight && shakerLeft))
         {
             animator.Play(pressedLeft ? "ShakerLeft" : "ShakerRight");
+            
+
+            bool noShaker = true;
+            for(int i = 0; i < 4; i++)
+            {
+                noShaker &= !AudioManager.IsSoundPlaying("Shaker" + i, AudioManager.SoundType.SFX);
+            }
+            if(noShaker)
+                AudioManager.PlaySFX("Shaker" + UnityEngine.Random.Range(1, 4));
+
 
             if (keycapPresses < 10)
             {

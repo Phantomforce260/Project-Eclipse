@@ -20,7 +20,7 @@ public class Scale : MonoBehaviour
     public float accelerationCoefficient;
     public float damping;
 
-    private float velocity = 0.0f;
+    public float velocity = 0.0f;
 
     public float spiceTimerLength;
     public float spiceTolerance;
@@ -41,6 +41,15 @@ public class Scale : MonoBehaviour
 
         velocity += acceleration;
         velocity *= damping;
+
+        // bool noCreaking = true;
+        // for (int i = 0; i < 7; i++)
+        // {
+        //     noCreaking &= !AudioManager.IsSoundPlaying("Creaking" + i, AudioManager.SoundType.SFX);
+        // }
+        // Debug.Log(Mathf.Abs(velocity));
+        // if (noCreaking && Mathf.Abs(velocity) > 2.5f)
+        //     AudioManager.PlaySFX("Creaking" + UnityEngine.Random.Range(1, 7));
 
         float newAngleDeg = Mathf.Clamp(angle + velocity * Time.deltaTime, -45f, 45f);
         rectTransform.localEulerAngles = new Vector3(0f, 0f, newAngleDeg);

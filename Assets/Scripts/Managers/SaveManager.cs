@@ -3,7 +3,9 @@ using UnityEngine;
 
 public class SaveManager : MonoBehaviour
 {
-    public SaveData ActiveSave = new();
+    public static SaveData ActiveSave => instance.activeSave;
+
+    private SaveData activeSave = new();
 
     private static SaveManager instance;
     private const string saveKey = "Save";
@@ -11,7 +13,10 @@ public class SaveManager : MonoBehaviour
     [Serializable]
     public class SaveData
     {
-        public string Name;
+        public string Name = "MainSave";
+        public bool SeenIntro;
+
+        public bool DoVsync = true;
     }
 
     private void Awake()
@@ -24,23 +29,20 @@ public class SaveManager : MonoBehaviour
 
     private void SaveInstance()
     {
-        string json = JsonUtility.ToJson(ActiveSave);
+        string json = JsonUtility.ToJson(activeSave);
         if (json.Length < 256)
             PlayerPrefs.SetString(saveKey, json);
         else
             Debug.Log("JSON is too long");
     }
 
-    public static void Load()
-    {
-        //instance.LoadInstance();
-    }
+    public static void Load() => instance.LoadInstance();
 
     private void LoadInstance()
     {
         string dataStr = PlayerPrefs.GetString(saveKey);
         if (!string.IsNullOrEmpty(dataStr))
-            ActiveSave = JsonUtility.FromJson<SaveData>(dataStr);
+            activeSave = JsonUtility.FromJson<SaveData>(dataStr);
         else
             Debug.Log("No save data to load");
     }
