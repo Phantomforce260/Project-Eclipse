@@ -51,7 +51,10 @@ public class Gems : Minigame
             container.rect.height * (1f - gridPaddingTop + gridPaddingBottom)
         );
 
-        OnGameFinish.AddListener(() => DepotController.PlayerInventory.Packages.Remove("Gems"));
+        OnGameFinish.AddListener(() => {
+            DepotController.PlayerInventory.Packages.Remove("Gems");
+            Depot.UpdatePackagesUI();
+        });
         OnGameFinish.AddListener(() => Door.MinigameStarted = false);
     }
 

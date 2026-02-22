@@ -1,15 +1,29 @@
 using System.Collections.Generic;
-
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Depot : MonoBehaviour
 {
+    public static Image[] PackageImages => instance.packageImages;
+
+    private static Depot instance;
+
     public float DetectionRange = 3f;
 
     private bool inRange;
 
+    public Image[] packageImages;
+
     private List<string> allMinigames;
+
+    void Awake()
+    {
+        if(instance == null)
+            instance = this;
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -39,10 +53,19 @@ public class Depot : MonoBehaviour
         {
             UIManager.SetNotif("Package Received!");
             DepotController.PlayerInventory.Packages.Add(allMinigames[Random.Range(0, allMinigames.Count)]);
+            UpdatePackagesUI();
         }
         else
         {
             UIManager.SetNotif("Can't hold any more packages!");
         }
+    }
+
+    public static void UpdatePackagesUI()
+    {
+        for(int i = 0; i < 3; i++)
+        {
+            PackageImages[i].enabled = i < DepotController.PlayerInventory.Packages.Count;
+        }       
     }
 }
