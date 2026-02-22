@@ -25,7 +25,6 @@ public class EaseToOrigin : MonoBehaviour
 
 	public void SetPosition(Vector2 position)
 	{
-        Debug.Log(position);
         targetPosition = position;
 	}
 }

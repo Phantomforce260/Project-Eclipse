@@ -45,6 +45,8 @@ public class Gems : Minigame
             container.rect.width * (1f - gridPaddingLeft + gridPaddingRight),
             container.rect.height * (1f - gridPaddingTop + gridPaddingBottom)
         );
+
+        OnGameFinish.AddListener(() => DepotController.PlayerInventory.Packages.Remove("Gems"));
     }
 
     void Start()
@@ -116,9 +118,10 @@ public class Gems : Minigame
                     {
                         AudioManager.PlaySFX("GemConnect" + connectionCount);
                         connectionCount++;
-                        if (!BoardClear())
+                        if (BoardClear())
                         {
                             Debug.Log("Gems WON");
+                            Finish();
                         }
                     }
 

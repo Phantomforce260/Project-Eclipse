@@ -24,6 +24,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioMixerGroup sfxMaster;
     [SerializeField] private AudioMixerGroup musicMaster;
 
+    private Sound currentPlayingSound;
+
     public enum SoundType
     { Music, SFX }
 
@@ -38,6 +40,22 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
 
         UpdateSounds();
+
+        PlayMusicInstance("Depot", false);
+    }
+
+    private void Start()
+    {
+        if (GameManager.CurrentScene.Equals("Depot"))
+        {
+            currentPlayingSound = GetSoundInstance("Depot", SoundType.Music);
+            foreach (var name in UIManager.GetAllMinigames())
+            {
+                GetSoundInstance(name, SoundType.Music).source.volume = 0;
+                PlayMusicInstance(name, false);
+            }
+        }
+
     }
 
     /* UpdateSounds:
@@ -117,6 +135,31 @@ public class AudioManager : MonoBehaviour
                 music.source.Play();
             }
         }
+    }
+
+    public static void SwitchTracks(string target) => instance.currentPlayingSound = instance.SwitchTracksInstance(target);
+
+    private Sound SwitchTracksInstance(string target)
+    {
+        Sound targetTrack = GetSoundInstance(target, SoundType.Music);
+        if (targetTrack != null)
+            StartCoroutine(SwitchTracksCoroutine(currentPlayingSound, targetTrack));
+
+        return targetTrack;
+    }
+
+    private IEnumerator SwitchTracksCoroutine(Sound current, Sound target)
+    {
+        target.source.volume = 0;
+        while (target.source.volume < 0.98f)
+        {
+            current.source.volume -= Time.deltaTime;
+            target.source.volume += Time.deltaTime;
+            yield return null;
+        }
+
+        current.source.volume = 0;
+        target.source.volume = 1;
     }
 
     /* StopSFX --> StopSFXInstance:

@@ -35,6 +35,7 @@ public class Door : MonoBehaviour
             {
                 minigameStarted = true;
                 UIManager.CreateMinigame(MinigameName);
+                AudioManager.SwitchTracks(MinigameName);
             }
         }
 

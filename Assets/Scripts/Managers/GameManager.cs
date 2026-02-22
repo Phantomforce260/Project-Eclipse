@@ -57,7 +57,6 @@ public class GameManager : MonoBehaviour
      * Toggles Vsync based on input. */
     public void SetvSync(bool dovSync)
     {
-        Debug.Log("Set Vsync: " + dovSync);
         QualitySettings.vSyncCount = dovSync ? 1 : 0;
     }
 

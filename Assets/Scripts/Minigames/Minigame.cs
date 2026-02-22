@@ -26,6 +26,7 @@ public abstract class Minigame : MonoBehaviour
         /* Call this to end a minigame. */
         UIManager.IsMiniGameActive = false;
         DepotController.MovementEnabled = true;
+        AudioManager.SwitchTracks("Depot");
         OnGameFinish.Invoke();
         Destroy(gameObject);
     }
