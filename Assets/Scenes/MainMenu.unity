@@ -1011,9 +1011,14 @@ MonoBehaviour:
   Pause: {fileID: 0}
   Credits: {fileID: 805700359}
   Welcome: {fileID: 0}
+  Summary: {fileID: 0}
   JKey: {fileID: 0}
   Notif: {fileID: 0}
   MinigameParent: {fileID: 0}
+  RankBadges: []
+  PackageCount: {fileID: 0}
+  TimeCount: {fileID: 0}
+  Badge: {fileID: 0}
 --- !u!114 &1600769056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1032,7 +1037,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 35dd8dce0da15484a942bc79549a1b92, type: 3}
     volume: 1
     pitch: 1
-    loop: 0
+    loop: 1
     source: {fileID: 0}
   - name: Credits
     clip: {fileID: 8300000, guid: a2e179197932f2541a8ea3d772b0521d, type: 3}

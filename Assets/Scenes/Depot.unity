@@ -3555,9 +3555,14 @@ MonoBehaviour:
   Pause: {fileID: 2203762950603907630}
   Credits: {fileID: 1542512421}
   Welcome: {fileID: 422624480}
+  Summary: {fileID: 0}
   JKey: {fileID: 1620632171}
   Notif: {fileID: 128553672}
   MinigameParent: {fileID: 337696188}
+  RankBadges: []
+  PackageCount: {fileID: 0}
+  TimeCount: {fileID: 0}
+  Badge: {fileID: 0}
 --- !u!224 &1800888569
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3572,8 +3577,8 @@ RectTransform:
   m_Children:
   - {fileID: 1026564772}
   - {fileID: 1620632173}
-  - {fileID: 128553671}
   - {fileID: 337696188}
+  - {fileID: 128553671}
   - {fileID: 2203762950603907629}
   - {fileID: 1542512420}
   - {fileID: 934457867}
@@ -3916,6 +3921,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4366143101710520886, guid: 8faa3f04e85225941ae83ab41a96f90d, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: c75bf181f77082f48a82aec7a2e1ceea, type: 2}
     - target: {fileID: 4366143101710520886, guid: 8faa3f04e85225941ae83ab41a96f90d, type: 3}
       propertyPath: m_Interpolate
       value: 1
