@@ -33,7 +33,10 @@ public class Spices : Minigame
             20
         );
         Initialize(); 
-        OnGameFinish.AddListener(() => DepotController.PlayerInventory.Packages.Remove("Spices"));
+        OnGameFinish.AddListener(() => {
+            DepotController.PlayerInventory.Packages.Remove("Spices");
+            Depot.UpdatePackagesUI();
+        });
         OnGameFinish.AddListener(() => Door.MinigameStarted = false);
     }
 

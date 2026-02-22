@@ -30,7 +30,10 @@ public class Sort : Minigame
             Color.black
         );
         Initialize();
-        OnGameFinish.AddListener(() => DepotController.PlayerInventory.Packages.Remove("Sort"));
+        OnGameFinish.AddListener(() => {
+            DepotController.PlayerInventory.Packages.Remove("Sort");
+            Depot.UpdatePackagesUI();
+        });
         OnGameFinish.AddListener(() => Door.MinigameStarted = false);
     }
 

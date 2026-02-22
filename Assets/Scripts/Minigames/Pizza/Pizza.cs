@@ -24,7 +24,10 @@ public class Pizza : Minigame
             20
         );
         Initialize();
-        OnGameFinish.AddListener(() => DepotController.PlayerInventory.Packages.Remove("Pizza"));
+        OnGameFinish.AddListener(() => {
+            DepotController.PlayerInventory.Packages.Remove("Pizza");
+            Depot.UpdatePackagesUI();
+        });
         OnGameFinish.AddListener(() => Door.MinigameStarted = false);
     }
 
