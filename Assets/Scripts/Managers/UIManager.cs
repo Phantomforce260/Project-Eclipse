@@ -2,10 +2,11 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    public static GameObject JKeyHint => instance.JKey;
+    public static TextMeshProUGUI JKeyHint => instance.JKey;
     public static Transform MainCanvas => instance.mainCanvas;
     public static bool IsMiniGameActive = false;
 
@@ -17,7 +18,8 @@ public class UIManager : MonoBehaviour
     public Animator Credits;
     public Animator Welcome;
 
-    public GameObject JKey;
+    public TextMeshProUGUI JKey;
+    public TextMeshProUGUI Notif;
 
     private Dictionary<string, Minigame> miniGameMap = new();
     private Transform mainCanvas;
@@ -40,14 +42,15 @@ public class UIManager : MonoBehaviour
 
         Credits.gameObject.SetActive(true);
 
+        if (Notif != null)
+            Notif.gameObject.SetActive(false);
+
         if (Welcome != null)
             Welcome.gameObject.SetActive(true);
 
         if (Pause != null)
             Pause.gameObject.SetActive(true);
     }
-
-    void Start() { }
 
     // Update is called once per frame
     void Update()
@@ -62,12 +65,15 @@ public class UIManager : MonoBehaviour
 
     public static void SetJkey()
     {
-        foreach (var _ in Door.DoorRanges.Where(func => func()).Select(func => new { }))
+        if (JKeyHint != null)
         {
-            JKeyHint.SetActive(true);
-            return;
+            foreach (var _ in Door.DoorRanges.Where(func => func()).Select(func => new { }))
+            {
+                JKeyHint.gameObject.SetActive(true);
+                return;
+            }
+            JKeyHint.gameObject.SetActive(false);
         }
-        JKeyHint.SetActive(false);
     }
 
     // Note: I decide to reuse the Credits animation for all 3 Menus,
@@ -111,4 +117,20 @@ public class UIManager : MonoBehaviour
             return null;
         }
     }
+
+    public static List<string> GetAllMinigames()
+    {
+        List<string> output = new();
+        output.AddRange(instance.Minigames.Select(minigame => minigame.name));
+        return output;
+    }
+
+    public static void SetNotif(string message, float timer = 5f)
+    {
+        instance.Notif.text = message;
+        instance.Notif.gameObject.SetActive(true);
+        instance.Invoke(nameof(HideNotif), timer);
+    }
+
+    private void HideNotif() => Notif.gameObject.SetActive(false);
 }
