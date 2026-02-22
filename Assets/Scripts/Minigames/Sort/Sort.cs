@@ -87,7 +87,7 @@ public class Sort : Minigame
         }
         
         if (count == numSeals)
-            Finish();
+            Invoke(nameof(Finish), 1f);
 
         Rerender();
     }

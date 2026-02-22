@@ -23,10 +23,9 @@ public class Depot : MonoBehaviour
         inRange = PlayerInRange();
         if (inRange)
         {
-            UIManager.JKeyHint.text = "J - Receive Package";
-            if (Keyboard.current.jKey.wasPressedThisFrame)
+            UIManager.JKeyHint.text = "Z - Receive Package";
+            if (Keyboard.current.jKey.wasPressedThisFrame || Keyboard.current.zKey.wasPressedThisFrame)
             {
-
                 AssignPackage();
             }
         }

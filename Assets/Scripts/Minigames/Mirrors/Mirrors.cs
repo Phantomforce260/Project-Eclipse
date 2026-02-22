@@ -40,7 +40,8 @@ public class Mirrors : Minigame
     {
         UIManager.SetNotif(
             "<HOLD> Z + WASD",
-            Color.black
+            Color.black,
+            20
         );
         Initialize();
     }
@@ -105,9 +106,7 @@ public class Mirrors : Minigame
         bool movement = direction.sqrMagnitude != 0;
 
         if(movement)
-        {
             MoveSelection(direction);
-        }
 
         if (clock || cClock)
         {
@@ -123,9 +122,7 @@ public class Mirrors : Minigame
     void PathLazer()
     {
         foreach (var piece in lazerPath)
-        {
             Destroy(piece.gameObject);
-        }
 
         lazerPath = new List<RectTransform>();
 
@@ -179,8 +176,7 @@ public class Mirrors : Minigame
                 endLazer.localRotation = Quaternion.Euler(0f, 0f, 0f);
                 lazerPath.Add(endLazer);
 
-                Finish();
-
+                Invoke(nameof(Finish), 1f);
                 break;
             }
 

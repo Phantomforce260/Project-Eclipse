@@ -27,14 +27,17 @@ public class Spices : Minigame
 
     private void Awake() 
     {
+        UIManager.SetNotif(
+            "A | D to balance",
+            Color.white,
+            20
+        );
         Initialize(); 
         OnGameFinish.AddListener(() => DepotController.PlayerInventory.Packages.Remove("Spices"));
         OnGameFinish.AddListener(() => Door.MinigameStarted = false);
     }
-    void Start()
-    {
-        leftWeight = UnityEngine.Random.Range(25f, 45f);
-    }
+
+    void Start() => leftWeight = UnityEngine.Random.Range(25f, 45f);
 
     void Update()
     {
@@ -47,15 +50,6 @@ public class Spices : Minigame
 
         velocity += acceleration;
         velocity *= damping;
-
-        // bool noCreaking = true;
-        // for (int i = 0; i < 7; i++)
-        // {
-        //     noCreaking &= !AudioManager.IsSoundPlaying("Creaking" + i, AudioManager.SoundType.SFX);
-        // }
-        // Debug.Log(Mathf.Abs(velocity));
-        // if (noCreaking && Mathf.Abs(velocity) > 10f)
-        //     AudioManager.PlaySFX("Creaking" + UnityEngine.Random.Range(1, 7));
 
         float newAngleDeg = Mathf.Clamp(angle + velocity * Time.deltaTime, -45f, 45f);
         rectTransform.localEulerAngles = new Vector3(0f, 0f, newAngleDeg);

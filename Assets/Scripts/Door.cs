@@ -30,8 +30,10 @@ public class Door : MonoBehaviour
         canEnterDoor = CanEnterDoor();
         if (inRange && canEnterDoor)
         {
-            UIManager.JKeyHint.text = "J - Enter Door";
-            if (!MinigameStarted && Keyboard.current.jKey.wasPressedThisFrame)
+            UIManager.JKeyHint.text = "Z - Enter Door";
+            if (!MinigameStarted && 
+                (Keyboard.current.jKey.wasPressedThisFrame || Keyboard.current.zKey.wasPressedThisFrame)
+            )
             {
                 MinigameStarted = true;
                 UIManager.CreateMinigame(MinigameName);
