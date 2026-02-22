@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEditor.Tilemaps;
 using UnityEngine;
 
@@ -30,6 +31,36 @@ public class MirrorTile : MonoBehaviour
     {
         direction = dir;
         rectTransform.localRotation = Quaternion.Euler(0f, 0f, DirectionToRotation(dir));
+    }
+
+    public Vector2Int GetReflection(Vector2Int dir)
+    {
+        Vector2Int u = Vector2Int.up;
+        Vector2Int l = Vector2Int.left;
+        Vector2Int r = Vector2Int.right;
+        Vector2Int d = Vector2Int.down;
+
+        if (direction == u)
+        {
+            if(dir == l) return u;
+            if(dir == u) return l;
+        }
+        else if (direction == r)
+        {
+            if(dir == u) return r;    
+            if(dir == r) return u;
+        }
+        else if (direction == d)
+        {
+            if(dir == r) return d;
+            if(dir == d) return r;
+        }
+        else if (direction == l)
+        {
+            if (dir == l) return d;
+            if (dir == d) return l;
+        }
+        return Vector2Int.zero;
     }
 
     void SeekTargetDirection()

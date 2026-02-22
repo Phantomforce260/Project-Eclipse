@@ -122,12 +122,12 @@ TextureImporter:
       name: Lazers_0
       rect:
         serializedVersion: 2
-        x: 51
-        y: 46
-        width: 47
-        height: 15
+        x: 9
+        y: 1
+        width: 65
+        height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -144,12 +144,12 @@ TextureImporter:
       name: Lazers_1
       rect:
         serializedVersion: 2
-        x: 155
+        x: 151
         y: 0
-        width: 80
-        height: 76
+        width: 1
+        height: 69
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -166,12 +166,12 @@ TextureImporter:
       name: Lazers_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 15
-        width: 139
-        height: 15
+        x: 85
+        y: 0
+        width: 65
+        height: 68
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -188,7 +188,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: d03d285cef45def4fbe0a2446e54ae19
     internalID: 0
     vertices: []
     indices: 

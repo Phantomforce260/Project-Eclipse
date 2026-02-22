@@ -1,8 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.Unity.VisualStudio.Editor;
-using NUnit.Framework.Constraints;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -24,14 +23,18 @@ public class Mirrors : Minigame
 
     public MirrorTile[] mirrorTiles;
 
-    private Vector2Int source;
-    private Vector2Int sink;
+    public Vector2Int source;
+    public Vector2Int sink;
 
     public Vector2Int[] publicPathCoords;
 
     public Animator selectAnimator;
     private Vector2Int selectionCoords = new Vector2Int(0, 0);
     public EaseToOrigin selectorPosition;
+
+    public GameObject lazer;
+    public GameObject bend;
+    public List<RectTransform> lazerPath;
 
     void Start()
     {
@@ -58,20 +61,19 @@ public class Mirrors : Minigame
         publicPathCoords = pathCoords;
 
         // Get the bends in the path
-        Debug.Log(source);
         for(int i = 1; i < pathCoords.Length - 1; i++)
         {
-            Debug.Log(pathCoords[i - 1]);
             if(pathCoords[i - 1] - pathCoords[i] != pathCoords[i] - pathCoords[i + 1])
             {
-                Debug.Log("Corner found");
                 mirrorTiles[pathCoords[i].y * gridDims.x + pathCoords[i].x] = Instantiate(mirrorPrefab).GetComponent<MirrorTile>();
                 mirrorTiles[pathCoords[i].y * gridDims.x + pathCoords[i].x].rectTransform.SetParent(container, false);
             }
         }
-        Debug.Log(sink);
 
         PositionTiles();
+
+        lazerPath = new List<RectTransform>();
+        PathLazer();
     }
 
     void Update()
@@ -98,11 +100,99 @@ public class Mirrors : Minigame
             MoveSelection(direction);
         }
 
-        if(clock || cClock)
+        if (clock || cClock)
         {
             MirrorTile mt = mirrorTiles[selectionCoords.y * gridDims.x + selectionCoords.x];
-            if(mt != null)
+            if (mt != null)
+            {
                 mt.RotateClockwise(clock);
+                PathLazer();
+            }
+        }
+    }
+
+    void PathLazer()
+    {
+        foreach (var piece in lazerPath)
+        {
+            Destroy(piece.gameObject);
+        }
+
+        lazerPath = new List<RectTransform>();
+
+        Vector2Int current = source;
+        Vector2Int dir = Vector2Int.right;
+
+        while (true)
+        {
+            if (!InBounds(current))
+                break;
+
+            Vector2 worldPos = current * gridScale + gridRect.position + (gridScale / 2f);
+
+            MirrorTile mirror = mirrorTiles[current.y * gridDims.x + current.x];
+            RectTransform piece;
+
+            if (mirror == null)
+            {
+                piece = Instantiate(lazer, container).GetComponent<RectTransform>();
+
+                piece.localPosition = worldPos;
+                piece.localRotation = Quaternion.Euler(0f, 0f, MirrorTile.DirectionToRotation(dir) + 90f);
+
+                lazerPath.Add(piece);
+            }
+            else
+            {
+                piece = Instantiate(bend, container).GetComponent<RectTransform>();
+                piece.gameObject.name = "(" + worldPos.x + ", " + worldPos.y + ")";
+
+                Vector2Int newDir = mirror.GetReflection(-dir);
+
+                if(newDir == Vector2Int.zero)
+                {
+                    Destroy(piece.gameObject);
+                    break;
+                }
+
+                lazerPath.Add(piece);
+
+                dir = newDir;
+
+                piece.localPosition = worldPos;
+                piece.localRotation = Quaternion.Euler(0f, 0f, MirrorTile.DirectionToRotation(mirror.direction));
+            }
+
+            if (current == sink)
+            {
+                RectTransform endLazer = Instantiate(lazer, container).GetComponent<RectTransform>();
+                endLazer.localPosition = (sink + Vector2Int.right) * gridScale + gridRect.position + (gridScale / 2f);
+                endLazer.localRotation = Quaternion.Euler(0f, 0f, 0f);
+                lazerPath.Add(endLazer);
+
+                Finish();
+
+                break;
+            }
+
+            current += dir;
+        }
+
+        RectTransform startLazer = Instantiate(lazer, container).GetComponent<RectTransform>();
+        startLazer.localPosition = (source + Vector2Int.left) * gridScale + gridRect.position + (gridScale / 2f);
+        startLazer.localRotation = Quaternion.Euler(0f, 0f, 0f);
+        lazerPath.Add(startLazer);
+
+    
+        RectTransform[] children = container.GetComponentsInChildren<RectTransform>();
+        foreach (var child in children)
+        {
+            Debug.Log(child.gameObject.name + " " + child.localPosition);
+            if (Math.Abs(child.localPosition.x) < 1 && Math.Abs(child.localPosition.y) < 1)
+            {
+                Debug.Log("This fucker is dead");
+                Destroy(child.gameObject);
+            }
         }
     }
 
@@ -207,5 +297,18 @@ public class Mirrors : Minigame
             (output[i], output[j]) = (output[j], output[i]);
         }
         return output;
+    }
+
+    public static Vector2Int RotateClockwise(Vector2Int direction, bool c)
+    {
+        if(direction == Vector2Int.up) 
+            return (c ? Vector2Int.right : Vector2Int.left);
+        else if(direction == Vector2Int.right)
+            return (c ? Vector2Int.down : Vector2Int.up);
+        else if(direction == Vector2Int.down)
+            return (c ? Vector2Int.left : Vector2Int.right);
+        else if(direction == Vector2Int.left)
+            return (c ? Vector2Int.up: Vector2Int.down);
+        return direction;
     }
 }

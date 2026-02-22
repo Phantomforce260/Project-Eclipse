@@ -11,9 +11,8 @@ GameObject:
   - component: {fileID: 5758707242045163485}
   - component: {fileID: 5441305385546334969}
   - component: {fileID: 6822145840996515631}
-  - component: {fileID: 4484457010857391535}
   m_Layer: 5
-  m_Name: MirrorTile
+  m_Name: Bend
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +27,7 @@ RectTransform:
   m_GameObject: {fileID: 8831718736951260265}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.65, y: 0.65, z: 0.65}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -37,7 +36,7 @@ RectTransform:
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 90, y: 88}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.93, y: 0.07}
 --- !u!222 &5441305385546334969
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -66,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 7411919347176863388, guid: 2ad180318990b5342a6476d02cc2ada3, type: 3}
+  m_Sprite: {fileID: 8899837885034518487, guid: 787d1e5ffd168714da0c92ef6fc1aef8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -76,18 +75,3 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4484457010857391535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8831718736951260265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba37c64ea0909354fb7152db4f49c280, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MirrorTile
-  direction: {x: 0, y: 1}
-  rectTransform: {fileID: 5758707242045163485}
-  isInPath: 0

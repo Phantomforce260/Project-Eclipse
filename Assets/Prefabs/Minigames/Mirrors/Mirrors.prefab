@@ -514,7 +514,7 @@ MonoBehaviour:
       m_Calls: []
   musicName: 
   container: {fileID: 1018462663921501935}
-  gridDims: {x: 3, y: 4}
+  gridDims: {x: 5, y: 3}
   gridPaddingLeft: 0.39
   gridPaddingRight: 0.39
   gridPaddingTop: 0.19
@@ -531,3 +531,6 @@ MonoBehaviour:
   publicPathCoords: []
   selectAnimator: {fileID: 6457241385570090098}
   selectorPosition: {fileID: 4285604147808996649}
+  lazer: {fileID: 8831718736951260265, guid: 4884d64ef93fb8640bd9b5b82f56a72c, type: 3}
+  bend: {fileID: 8831718736951260265, guid: 439bd6af811fd2c488ac3d97e8483eb9, type: 3}
+  lazerPath: []
