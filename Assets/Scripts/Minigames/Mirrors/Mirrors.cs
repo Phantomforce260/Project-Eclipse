@@ -44,6 +44,8 @@ public class Mirrors : Minigame
             20
         );
         Initialize();
+        OnGameFinish.AddListener(() => DepotController.PlayerInventory.Packages.Remove("Mirrors"));
+        OnGameFinish.AddListener(() => Door.MinigameStarted = false);
     }
 
     void Start()
