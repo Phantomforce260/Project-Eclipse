@@ -22,7 +22,7 @@ public class DebugManager : MonoBehaviour
         if (Keyboard.current.periodKey.wasPressedThisFrame)
         {
             Debug.Log("key pressed");
-            string mg = "Mirrors";
+            string mg = "Sort";
             Debug.Log("Starting minigame: " + mg);
             UIManager.CreateMinigame(mg);
         }

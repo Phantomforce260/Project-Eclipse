@@ -3171,6 +3171,7 @@ MonoBehaviour:
   - {fileID: 8332884649415179728, guid: 98a9680d4b03e7cbdbc4eb1bd0c6f684, type: 3}
   - {fileID: 2089230941429873399, guid: 8711266f50c9a8540a44d9271b9e8e44, type: 3}
   - {fileID: 1879040126758292862, guid: 2eed98f9a3958d64e93c0a67234439e1, type: 3}
+  - {fileID: 6714281151245359415, guid: c6d96ddec8bed41b28240ceb28afad6e, type: 3}
   Pause: {fileID: 2203762950603907630}
   Credits: {fileID: 1542512421}
   Welcome: {fileID: 422624480}
@@ -3528,13 +3529,21 @@ PrefabInstance:
       propertyPath: m_Interpolate
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5942714833902783742, guid: 8faa3f04e85225941ae83ab41a96f90d, type: 3}
+      propertyPath: m_Size.y
+      value: 2.033856
+      objectReference: {fileID: 0}
+    - target: {fileID: 5942714833902783742, guid: 8faa3f04e85225941ae83ab41a96f90d, type: 3}
+      propertyPath: m_Offset.y
+      value: 1.0876691
+      objectReference: {fileID: 0}
     - target: {fileID: 7143920791922041127, guid: 8faa3f04e85225941ae83ab41a96f90d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.96
+      value: -6.18
       objectReference: {fileID: 0}
     - target: {fileID: 7143920791922041127, guid: 8faa3f04e85225941ae83ab41a96f90d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.01
+      value: -4.62
       objectReference: {fileID: 0}
     - target: {fileID: 7143920791922041127, guid: 8faa3f04e85225941ae83ab41a96f90d, type: 3}
       propertyPath: m_LocalPosition.z
