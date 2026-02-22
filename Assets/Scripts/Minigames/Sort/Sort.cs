@@ -31,6 +31,7 @@ public class Sort : Minigame
         );
         Initialize();
         OnGameFinish.AddListener(() => DepotController.PlayerInventory.Packages.Remove("Sort"));
+        OnGameFinish.AddListener(() => Door.MinigameStarted = false);
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

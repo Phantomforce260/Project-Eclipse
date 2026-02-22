@@ -11,7 +11,7 @@ public class Door : MonoBehaviour
 
     public string MinigameName;
 
-    private bool minigameStarted;
+    public static bool MinigameStarted;
 
     private bool inRange;
     private bool canEnterDoor;
@@ -31,14 +31,13 @@ public class Door : MonoBehaviour
         if (inRange && canEnterDoor)
         {
             UIManager.JKeyHint.text = "J - Enter Door";
-            if (!minigameStarted && Keyboard.current.jKey.wasPressedThisFrame)
+            if (!MinigameStarted && Keyboard.current.jKey.wasPressedThisFrame)
             {
-                minigameStarted = true;
+                MinigameStarted = true;
                 UIManager.CreateMinigame(MinigameName);
                 AudioManager.SwitchTracks(MinigameName);
             }
         }
-
         SetDoorNotif();
     }
 

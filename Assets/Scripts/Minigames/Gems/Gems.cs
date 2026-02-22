@@ -51,6 +51,7 @@ public class Gems : Minigame
         );
 
         OnGameFinish.AddListener(() => DepotController.PlayerInventory.Packages.Remove("Gems"));
+        OnGameFinish.AddListener(() => Door.MinigameStarted = false);
     }
 
     void Start()

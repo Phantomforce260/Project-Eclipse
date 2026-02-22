@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 public class Shaker : MonoBehaviour
 {
     public RectTransform rectTransform;
-    public Scale scale;
+    public Spices spices;
 
     public ParticleSystem shakerParticles;
 
@@ -66,13 +66,13 @@ public class Shaker : MonoBehaviour
 
             shakerLeft = pressedLeft;
 
-            scale.SetRightWeight(scale.rightWeight + Random.Range(0f, flakesPerShake));
+            spices.SetRightWeight(spices.rightWeight + Random.Range(0f, flakesPerShake));
             shakerParticles.Play();
         }
 
 		if (blowSpices) 
 		{
-			scale.SetRightWeight(Mathf.Clamp(scale.rightWeight -= Time.deltaTime * 50, 0, 45));
+			spices.SetRightWeight(Mathf.Clamp(spices.rightWeight -= Time.deltaTime * 50, 0, 45));
 		}	
     }
 }
