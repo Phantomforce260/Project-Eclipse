@@ -36,6 +36,15 @@ public class Mirrors : Minigame
     public GameObject bend;
     public List<RectTransform> lazerPath;
 
+    private void Awake()
+    {
+        UIManager.SetNotif(
+            "<HOLD> Z + WASD",
+            Color.black
+        );
+        Initialize();
+    }
+
     void Start()
     {
         mirrorTiles = new MirrorTile[gridDims.x * gridDims.y];

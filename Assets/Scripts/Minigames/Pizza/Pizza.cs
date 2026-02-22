@@ -16,7 +16,14 @@ public class Pizza : Minigame
 
     public PizzaSelectable[] chosen;
 
-    private void Awake() => Initialize();
+    private void Awake()
+    {
+        UIManager.SetNotif(
+            "WASD to Move\nZ to Select",
+            Color.black
+        );
+        Initialize();
+    }
 
     void Start()
     {

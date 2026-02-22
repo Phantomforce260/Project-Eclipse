@@ -37,6 +37,10 @@ public class Gems : Minigame
 
     private void Awake()
     {
+        UIManager.SetNotif(
+            "<Hold> Z + WASD",
+            Color.white
+        );
         Initialize();
 
         gridRect = new Rect(

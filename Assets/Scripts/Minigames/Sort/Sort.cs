@@ -25,6 +25,10 @@ public class Sort : Minigame
 
     private void Awake()
     {
+        UIManager.SetNotif(
+            "A | D to Sort",
+            Color.black
+        );
         Initialize();
         OnGameFinish.AddListener(() => DepotController.PlayerInventory.Packages.Remove("Sort"));
     }

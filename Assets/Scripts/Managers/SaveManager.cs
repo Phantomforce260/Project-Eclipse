@@ -17,6 +17,8 @@ public class SaveManager : MonoBehaviour
         public bool SeenIntro;
 
         public bool DoVsync = true;
+
+        public int Day = 1;
     }
 
     private void Awake()
@@ -47,5 +49,9 @@ public class SaveManager : MonoBehaviour
             Debug.Log("No save data to load");
     }
 
-    public static void DeleteSave() => PlayerPrefs.DeleteKey(saveKey);
+    public static void DeleteSave()
+    {
+        instance.activeSave = new SaveData();
+        PlayerPrefs.DeleteKey(saveKey);
+    }
 }

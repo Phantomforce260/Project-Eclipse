@@ -2759,7 +2759,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Depot
     clip: {fileID: 8300000, guid: af0e0259f712a1e41bc55062cc7bb8c2, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 1
     loop: 1
     source: {fileID: 0}
@@ -3425,7 +3425,7 @@ PrefabInstance:
     - target: {fileID: 7624552686687611463, guid: b46c9f5ed4fd8354c9b3adfdd3059c14, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1541974581}
+      objectReference: {fileID: 1800888568}
     - target: {fileID: 7624552686687611463, guid: b46c9f5ed4fd8354c9b3adfdd3059c14, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ToggleCredits
@@ -3464,6 +3464,14 @@ PrefabInstance:
     - target: {fileID: 950490098068859988, guid: f6ef09f88231d764fa87f7e4c68f33c0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 1800888568}
+    - target: {fileID: 950490098068859988, guid: f6ef09f88231d764fa87f7e4c68f33c0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToggleCredits
+      objectReference: {fileID: 0}
+    - target: {fileID: 950490098068859988, guid: f6ef09f88231d764fa87f7e4c68f33c0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4749757774453038126, guid: f6ef09f88231d764fa87f7e4c68f33c0, type: 3}
       propertyPath: m_Pivot.x

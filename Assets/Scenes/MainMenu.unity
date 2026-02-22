@@ -1013,6 +1013,7 @@ MonoBehaviour:
   Welcome: {fileID: 0}
   JKey: {fileID: 0}
   Notif: {fileID: 0}
+  MinigameParent: {fileID: 0}
 --- !u!114 &1600769056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1026,7 +1027,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
   soundEffects: []
-  music: []
+  music:
+  - name: Intro
+    clip: {fileID: 8300000, guid: 35dd8dce0da15484a942bc79549a1b92, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Credits
+    clip: {fileID: 8300000, guid: a2e179197932f2541a8ea3d772b0521d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   audioMixer: {fileID: 0}
   sfxMaster: {fileID: 0}
   musicMaster: {fileID: 0}
