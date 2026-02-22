@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor.Animations;
@@ -36,6 +37,9 @@ public class Mirrors : Minigame
     public GameObject bend;
     public List<RectTransform> lazerPath;
 
+    public Animator buttonAnimator;
+    public Animator planetAnimator;
+
     void Start()
     {
         mirrorTiles = new MirrorTile[gridDims.x * gridDims.y];
@@ -57,7 +61,11 @@ public class Mirrors : Minigame
 
         gridScale = new Vector2(gridRect.width / gridDims.x, gridRect.height / gridDims.y);
 
-        Vector2Int[] pathCoords = CreatePath();
+        Vector2Int[] pathCoords;
+        do
+        {
+            pathCoords = CreatePath();
+        } while(pathCoords.Length == 0);
         publicPathCoords = pathCoords;
 
         // Get the bends in the path
@@ -100,13 +108,14 @@ public class Mirrors : Minigame
             MoveSelection(direction);
         }
 
+        PathLazer();
         if (clock || cClock)
         {
             MirrorTile mt = mirrorTiles[selectionCoords.y * gridDims.x + selectionCoords.x];
             if (mt != null)
             {
+                AudioManager.PlaySFX("MirrorRotate");
                 mt.RotateClockwise(clock);
-                PathLazer();
             }
         }
     }
@@ -125,6 +134,21 @@ public class Mirrors : Minigame
 
         while (true)
         {
+            if (current == sink + Vector2Int.right)
+            {
+                RectTransform endLazer = Instantiate(lazer, container).GetComponent<RectTransform>();
+                endLazer.localPosition = (sink + Vector2Int.right) * gridScale + gridRect.position + (gridScale / 2f);
+                endLazer.localRotation = Quaternion.Euler(0f, 0f, 0f);
+                lazerPath.Add(endLazer);
+
+                buttonAnimator.Play("ButtonGlow");
+                planetAnimator.Play("PlanetDead");
+
+                StartCoroutine(StartWin());
+
+                break;
+            }
+
             if (!InBounds(current))
                 break;
 
@@ -163,18 +187,6 @@ public class Mirrors : Minigame
                 piece.localRotation = Quaternion.Euler(0f, 0f, MirrorTile.DirectionToRotation(mirror.direction));
             }
 
-            if (current == sink)
-            {
-                RectTransform endLazer = Instantiate(lazer, container).GetComponent<RectTransform>();
-                endLazer.localPosition = (sink + Vector2Int.right) * gridScale + gridRect.position + (gridScale / 2f);
-                endLazer.localRotation = Quaternion.Euler(0f, 0f, 0f);
-                lazerPath.Add(endLazer);
-
-                Finish();
-
-                break;
-            }
-
             current += dir;
         }
 
@@ -182,18 +194,6 @@ public class Mirrors : Minigame
         startLazer.localPosition = (source + Vector2Int.left) * gridScale + gridRect.position + (gridScale / 2f);
         startLazer.localRotation = Quaternion.Euler(0f, 0f, 0f);
         lazerPath.Add(startLazer);
-
-    
-        RectTransform[] children = container.GetComponentsInChildren<RectTransform>();
-        foreach (var child in children)
-        {
-            Debug.Log(child.gameObject.name + " " + child.localPosition);
-            if (Math.Abs(child.localPosition.x) < 1 && Math.Abs(child.localPosition.y) < 1)
-            {
-                Debug.Log("This fucker is dead");
-                Destroy(child.gameObject);
-            }
-        }
     }
 
     void PositionTiles()
@@ -311,4 +311,18 @@ public class Mirrors : Minigame
             return (c ? Vector2Int.up: Vector2Int.down);
         return direction;
     }
+
+    IEnumerator StartWin()
+    {
+        float timer = 2.5f;
+
+        while (timer >= 0)
+        {
+            timer -= Time.deltaTime;
+            yield return null;
+        }
+
+        Debug.Log("Mirrors WON");
+        Finish();
+    } 
 }

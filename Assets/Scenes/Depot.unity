@@ -2732,6 +2732,24 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: Explosion
+    clip: {fileID: 8300000, guid: cd5f9e6ab4db6b54987729a438846ee2, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Explosion
+    clip: {fileID: 8300000, guid: cd5f9e6ab4db6b54987729a438846ee2, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MirrorRotate
+    clip: {fileID: 8300000, guid: 4561d30ac84bf294da25b7dba097ab3e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   music:
   - name: Credits
     clip: {fileID: 8300000, guid: a2e179197932f2541a8ea3d772b0521d, type: 3}
