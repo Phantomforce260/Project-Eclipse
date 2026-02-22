@@ -1341,7 +1341,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -24.5707, y: -222}
+  m_AnchoredPosition: {x: -24.5707, y: -145}
   m_SizeDelta: {x: 620.8586, y: 122.4719}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &388588793
@@ -1365,7 +1365,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: '*Due to staff shortages across the dimensions, you may be asked to assist
-    in additional ways. Mail Co. will not compensate for this work.'
+    in additional ways. IPS will not compensate for this work.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ff5abe8944dac4644a5733967b01a71a, type: 2}
   m_sharedMaterial: {fileID: 1181771819093007214, guid: ff5abe8944dac4644a5733967b01a71a, type: 2}
@@ -1696,7 +1696,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -24.5707, y: 88}
+  m_AnchoredPosition: {x: -24.5707, y: 170}
   m_SizeDelta: {x: 620.8586, y: 122.4719}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &656402473
@@ -1840,7 +1840,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -24.5707, y: -310}
+  m_AnchoredPosition: {x: -24.5707, y: -225}
   m_SizeDelta: {x: 620.8586, y: 122.4719}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &717086301
@@ -1865,7 +1865,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Good luck and have fun!
 
-    Sincerely,'
+    Sincerely,
+
+    Interdimensional Postal Service'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ff5abe8944dac4644a5733967b01a71a, type: 2}
   m_sharedMaterial: {fileID: 1181771819093007214, guid: ff5abe8944dac4644a5733967b01a71a, type: 2}
@@ -2290,7 +2292,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -24.5707, y: 253}
+  m_AnchoredPosition: {x: -24.5707, y: 300}
   m_SizeDelta: {x: 620.8586, y: 122.4719}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1500494196
@@ -2677,6 +2679,24 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: CorrectSeal
+    clip: {fileID: 8300000, guid: 73deb890887e8b541b69c7842f132466, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: WrongSeal
+    clip: {fileID: 8300000, guid: a187025e7087cb14cb994dd73f858aa9, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SealSwoosh
+    clip: {fileID: 8300000, guid: bd68b193150421647b8e8b4036c35c6f, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   music:
   - name: Credits
     clip: {fileID: 8300000, guid: a2e179197932f2541a8ea3d772b0521d, type: 3}
@@ -2798,9 +2818,9 @@ RectTransform:
   m_Children:
   - {fileID: 87912565}
   - {fileID: 1500494195}
-  - {fileID: 717086300}
   - {fileID: 656402472}
   - {fileID: 388588792}
+  - {fileID: 717086300}
   m_Father: {fileID: 422624479}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2828,7 +2848,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 7345646004554410383, guid: 4b9e620b1155330488b2bf5dbff7181e, type: 3}
+  m_Sprite: {fileID: -4931863586405815517, guid: 76d04aa48189846b598a0904e6bc78d7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
