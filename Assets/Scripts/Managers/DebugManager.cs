@@ -9,23 +9,23 @@ public class DebugManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Keyboard.current.commaKey.wasPressedThisFrame)
-        {
-            delKeyCount++;
-            if (delKeyCount >= 5)
-            {
-                delKeyCount = 0;
-                Debug.Log("Save Data removed");
-                SaveManager.DeleteSave();
-            }
-        }
+        // if (Keyboard.current.commaKey.wasPressedThisFrame)
+        // {
+        //     delKeyCount++;
+        //     if (delKeyCount >= 5)
+        //     {
+        //         delKeyCount = 0;
+        //         Debug.Log("Save Data removed");
+        //         SaveManager.DeleteSave();
+        //     }
+        // }
 
-        if (Keyboard.current.periodKey.wasPressedThisFrame)
-        {
-            Debug.Log("key pressed");
-            string mg = "Mirrors";
-            Debug.Log("Starting minigame: " + mg);
-            UIManager.CreateMinigame(mg);
-        }
+        // if (Keyboard.current.periodKey.wasPressedThisFrame)
+        // {
+        //     Debug.Log("key pressed");
+        //     string mg = "Mirrors";
+        //     Debug.Log("Starting minigame: " + mg);
+        //     UIManager.CreateMinigame(mg);
+        // }
     }
 }

@@ -111,7 +111,6 @@ public class GameManager : MonoBehaviour
         while (!endCondition())
         {
             WorkTimer += Time.deltaTime;
-            Debug.Log(WorkTimer);
             yield return null;
         }
     }

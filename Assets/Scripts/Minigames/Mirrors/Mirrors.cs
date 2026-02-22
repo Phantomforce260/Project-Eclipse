@@ -11,6 +11,8 @@ public class Mirrors : Minigame
     public RectTransform container;
     public Vector2Int gridDims;
 
+    public bool gameOver = false;
+
     public float gridPaddingLeft;
     public float gridPaddingRight;
     public float gridPaddingTop;
@@ -100,6 +102,8 @@ public class Mirrors : Minigame
 
     void Update()
     {
+        if(gameOver) return;
+
         PositionTiles();
         MoveSelection(Vector2Int.zero);
 
@@ -197,15 +201,16 @@ public class Mirrors : Minigame
                 piece.localRotation = Quaternion.Euler(0f, 0f, MirrorTile.DirectionToRotation(mirror.direction));
             }
 
-            if (current == sink)
+            if (current == sink + Vector2Int.right)
             {
                 RectTransform endLazer = Instantiate(lazer, container).GetComponent<RectTransform>();
                 endLazer.localPosition = (sink + Vector2Int.right) * gridScale + gridRect.position + (gridScale / 2f);
                 endLazer.localRotation = Quaternion.Euler(0f, 0f, 0f);
                 lazerPath.Add(endLazer);
 
+                gameOver = true;
                 Invoke(nameof(Finish), 1f);
-                break;
+                return;
             }
 
             current += dir;
