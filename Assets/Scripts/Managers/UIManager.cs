@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,11 +18,18 @@ public class UIManager : MonoBehaviour
     public Animator Pause;
     public Animator Credits;
     public Animator Welcome;
+    public Animator Summary;
 
     public TextMeshProUGUI JKey;
     public TextMeshProUGUI Notif;
 
     public Transform MinigameParent;
+
+    public Sprite[] RankBadges;
+
+    public TextMeshProUGUI PackageCount;
+    public TextMeshProUGUI TimeCount;
+    public Image Badge;
 
     private Dictionary<string, Minigame> miniGameMap = new();
     private Transform mainCanvas;
@@ -45,6 +53,9 @@ public class UIManager : MonoBehaviour
         mainCanvas = transform;
 
         Credits.gameObject.SetActive(true);
+
+        if (Summary != null)
+            Summary.gameObject.SetActive(true);
 
         if (Notif != null)
             Notif.gameObject.SetActive(false);
@@ -89,6 +100,12 @@ public class UIManager : MonoBehaviour
 
         if (!toggle)
             SaveManager.ActiveSave.SeenIntro = true;
+    }
+
+    public static void ToggleSummary(bool toggle)
+    {
+        if (instance.Summary != null)
+            instance.Summary.Play(toggle ? "CreditsIn" : "CreditsOut");
     }
 
     public static void TogglePause(bool toggle)
@@ -165,4 +182,34 @@ public class UIManager : MonoBehaviour
     }
 
     private void HideNotif() => Notif.gameObject.SetActive(false);
+
+    public static void GenerateSummary()
+    {
+        float finalTime = GameManager.WorkTimer;
+        instance.PackageCount.text = DepotController.PackagesDelivered.ToString();
+        instance.TimeCount.text = FloatToTime(finalTime);
+
+        int badgeIndex;
+        if (finalTime < 105)
+            badgeIndex = 0;
+        else if (finalTime < 120)
+            badgeIndex = 1;
+        else if (finalTime < 135)
+            badgeIndex = 2;
+        else if (finalTime < 150)
+            badgeIndex = 3;
+        else if (finalTime < 165)
+            badgeIndex = 4;
+        else
+            badgeIndex = 4;
+
+        instance.Badge.sprite = instance.RankBadges[badgeIndex];
+    }
+
+    private static string FloatToTime(float time)
+    {
+        int mins = (int)time / 60;
+        int secs = (int)time % 60;
+        return $"{mins}:{secs}";
+    }
 }

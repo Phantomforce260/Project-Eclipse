@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
 
     private static string previousScene;
 
-    private float workTimer;
+    public static float WorkTimer;
 
     [Header("Scene Transitions")]
     [SerializeField] private Animator crossFade;
@@ -50,6 +50,9 @@ public class GameManager : MonoBehaviour
 
         switch (CurrentScene)
         {
+            case "Depot" when SaveManager.ActiveSave.SeenIntro:
+                OnClickedIntro();
+                goto case "Depot";
             case "Depot" when !SaveManager.ActiveSave.SeenIntro:
                 UIManager.ToggleIntro(true);
                 goto case "Depot";
@@ -92,12 +95,23 @@ public class GameManager : MonoBehaviour
         _ => 10
     };
 
+    private void Update()
+    {
+        if (DepotController.PackagesDelivered >= MaxPackages)
+        {
+            DepotController.MovementEnabled = false;
+            UIManager.ToggleSummary(true);
+            UIManager.GenerateSummary();
+        }
+    }
+
     private IEnumerator StartTimer(Func<bool> endCondition)
     {
-        workTimer = 0;
+        WorkTimer = 0;
         while (!endCondition())
         {
-            workTimer += Time.deltaTime;
+            WorkTimer += Time.deltaTime;
+            Debug.Log(WorkTimer);
             yield return null;
         }
     }

@@ -28,7 +28,7 @@ public class Spices : Minigame
     private void Awake() 
     {
         UIManager.SetNotif(
-            "A | D to balance",
+            "<- | -> to balance, ^ to remove",
             Color.white,
             20
         );
