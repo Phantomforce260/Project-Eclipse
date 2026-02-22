@@ -254,7 +254,7 @@ RectTransform:
   m_GameObject: {fileID: 5329749950677476601}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8934749580319840418}
@@ -514,7 +514,7 @@ MonoBehaviour:
       m_Calls: []
   musicName: 
   container: {fileID: 1018462663921501935}
-  gridDims: {x: 4, y: 3}
+  gridDims: {x: 3, y: 4}
   gridPaddingLeft: 0.39
   gridPaddingRight: 0.39
   gridPaddingTop: 0.19
@@ -529,3 +529,5 @@ MonoBehaviour:
   mirrorPrefab: {fileID: 8831718736951260265, guid: c23103d0d1328ea45b71f9b7103810d8, type: 3}
   mirrorTiles: []
   publicPathCoords: []
+  selectAnimator: {fileID: 6457241385570090098}
+  selectorPosition: {fileID: 4285604147808996649}

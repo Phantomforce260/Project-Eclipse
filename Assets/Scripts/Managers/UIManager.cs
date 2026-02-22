@@ -65,12 +65,15 @@ public class UIManager : MonoBehaviour
 
     public static void SetJkey()
     {
-        foreach (var _ in Door.DoorRanges.Where(func => func()).Select(func => new { }))
+        if (JKeyHint != null)
         {
-            JKeyHint.gameObject.SetActive(true);
-            return;
+            foreach (var _ in Door.DoorRanges.Where(func => func()).Select(func => new { }))
+            {
+                JKeyHint.gameObject.SetActive(true);
+                return;
+            }
+            JKeyHint.gameObject.SetActive(false);
         }
-        JKeyHint.gameObject.SetActive(false);
     }
 
     // Note: I decide to reuse the Credits animation for all 3 Menus,

@@ -1,11 +1,11 @@
+using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public class MirrorTile : MonoBehaviour
 {
     private static float easing = 0.05f;
 
-    public Vector2Int direction;
-    public Vector2Int targetDirection;
+    public Vector2Int direction = Vector2Int.up;
 
     public RectTransform rectTransform;
 
@@ -14,6 +14,11 @@ public class MirrorTile : MonoBehaviour
     void Start()
     {
         rectTransform = GetComponent<RectTransform>();
+
+        for(int i = 0; i < UnityEngine.Random.Range(0, 4); i++)
+        {
+            RotateClockwise(true);
+        }
     }
 
     void Update()
@@ -24,16 +29,28 @@ public class MirrorTile : MonoBehaviour
     public void SetDirection(Vector2Int dir)
     {
         direction = dir;
+        rectTransform.localRotation = Quaternion.Euler(0f, 0f, DirectionToRotation(dir));
     }
 
     void SeekTargetDirection()
     {
-        float targetRotation = DirectionToRotation(direction);
-        float currentRotation = rectTransform.localEulerAngles.z;
+        float current = rectTransform.localEulerAngles.z;
+        float target = DirectionToRotation(direction);
 
-        float diff = targetRotation - currentRotation;
+        float newRotation = Mathf.LerpAngle(current, target, easing);
+        rectTransform.localRotation = Quaternion.Euler(0f, 0f, newRotation);
+    }
 
-        rectTransform.rotation = Quaternion.Euler(0f, 0f, currentRotation + diff * easing);
+    public void RotateClockwise(bool c)
+    {
+        if(direction == Vector2Int.up) 
+            direction = (c ? Vector2Int.right : Vector2Int.left);
+        else if(direction == Vector2Int.right)
+            direction = (c ? Vector2Int.down : Vector2Int.up);
+        else if(direction == Vector2Int.down)
+             direction = (c ? Vector2Int.left : Vector2Int.right);
+        else if(direction == Vector2Int.left)
+             direction = (c ? Vector2Int.up: Vector2Int.down);
     }
 
     public static float DirectionToRotation(Vector2Int dir)

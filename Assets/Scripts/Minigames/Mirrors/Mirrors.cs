@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.Unity.VisualStudio.Editor;
 using NUnit.Framework.Constraints;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Mirrors : Minigame
 {
@@ -27,7 +29,9 @@ public class Mirrors : Minigame
 
     public Vector2Int[] publicPathCoords;
 
-    private void Awake() => Initialize();
+    public Animator selectAnimator;
+    private Vector2Int selectionCoords = new Vector2Int(0, 0);
+    public EaseToOrigin selectorPosition;
 
     void Start()
     {
@@ -73,6 +77,33 @@ public class Mirrors : Minigame
     void Update()
     {
         PositionTiles();
+        MoveSelection(Vector2Int.zero);
+
+        bool left = Keyboard.current.aKey.wasPressedThisFrame || Keyboard.current.leftArrowKey.wasPressedThisFrame;
+        bool right = Keyboard.current.dKey.wasPressedThisFrame || Keyboard.current.rightArrowKey.wasPressedThisFrame;
+        bool up = Keyboard.current.sKey.wasPressedThisFrame || Keyboard.current.downArrowKey.wasPressedThisFrame;
+        bool down = Keyboard.current.wKey.wasPressedThisFrame || Keyboard.current.upArrowKey.wasPressedThisFrame;
+
+        bool cClock = Keyboard.current.jKey.wasPressedThisFrame || Keyboard.current.zKey.wasPressedThisFrame;
+        bool clock = Keyboard.current.kKey.wasPressedThisFrame || Keyboard.current.xKey.wasPressedThisFrame;
+
+        Vector2Int direction = (left ? Vector2Int.left : Vector2Int.zero) +
+            (right ? Vector2Int.right : Vector2Int.zero) +
+            (down ? Vector2Int.up : Vector2Int.zero) +
+            (up ? Vector2Int.down : Vector2Int.zero);
+        bool movement = direction.sqrMagnitude != 0;
+
+        if(movement)
+        {
+            MoveSelection(direction);
+        }
+
+        if(clock || cClock)
+        {
+            MirrorTile mt = mirrorTiles[selectionCoords.y * gridDims.x + selectionCoords.x];
+            if(mt != null)
+                mt.RotateClockwise(clock);
+        }
     }
 
     void PositionTiles()
@@ -145,6 +176,17 @@ public class Mirrors : Minigame
         }
 
         return false;
+    }
+
+    void MoveSelection(Vector2Int delta)
+    {
+        // Bound the selection to the grid dimensions
+        selectionCoords = new Vector2Int(
+            Math.Clamp(selectionCoords.x + delta.x, 0, gridDims.x - 1),
+            Math.Clamp(selectionCoords.y + delta.y, 0, gridDims.y - 1)
+        );
+
+        selectorPosition.SetPosition(selectionCoords * gridScale + gridRect.position + (gridScale / 2f));
     }
 
     bool InBounds(Vector2Int coords)

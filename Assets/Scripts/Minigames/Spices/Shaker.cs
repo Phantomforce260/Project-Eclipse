@@ -46,14 +46,10 @@ public class Shaker : MonoBehaviour
         {
             animator.Play(pressedLeft ? "ShakerLeft" : "ShakerRight");
             
-
-            bool noShaker = true;
-            for(int i = 0; i < 4; i++)
-            {
-                noShaker &= !AudioManager.IsSoundPlaying("Shaker" + i, AudioManager.SoundType.SFX);
-            }
-            if(noShaker)
-                AudioManager.PlaySFX("Shaker" + UnityEngine.Random.Range(1, 4));
+            if(pressedLeft)
+                AudioManager.PlaySFX("Shaker1");
+            else
+                AudioManager.PlaySFX("Shaker2");
 
 
             if (keycapPresses < 10)

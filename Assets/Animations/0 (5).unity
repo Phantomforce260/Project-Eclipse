@@ -2396,7 +2396,7 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: GemConnect4
-    clip: {fileID: 8300000, guid: 167fa70d8ea7ffa48b4d878fd9fd0c11, type: 3}
+    clip: {fileID: 8300000, guid: 6e1daeb064f55974fbfa3823e3be3c0c, type: 3}
     volume: 1
     pitch: 1
     loop: 0
@@ -2492,11 +2492,53 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   music:
-  - name: 
-    clip: {fileID: 0}
+  - name: Credits
+    clip: {fileID: 8300000, guid: a2e179197932f2541a8ea3d772b0521d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Intro
+    clip: {fileID: 8300000, guid: 35dd8dce0da15484a942bc79549a1b92, type: 3}
     volume: 0
-    pitch: 0
-    loop: 0
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Gems
+    clip: {fileID: 8300000, guid: e939e570b949aaa45b1b460d2c4d813e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Pizza
+    clip: {fileID: 8300000, guid: 442a9ce80c5bdb743bd66a93671cb011, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Depot
+    clip: {fileID: 8300000, guid: af0e0259f712a1e41bc55062cc7bb8c2, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Mirrors
+    clip: {fileID: 8300000, guid: 2642a6803c329e44a8531bdf367f4ae2, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Spices
+    clip: {fileID: 8300000, guid: 829a93b044320714eaca2cf1654752a7, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Sorting
+    clip: {fileID: 8300000, guid: 74685a750795bf943a3191e0b5943446, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
     source: {fileID: 0}
   audioMixer: {fileID: 24100000, guid: d8ea915592d5e024b8b042fbe36936d4, type: 2}
   sfxMaster: {fileID: 24300002, guid: d8ea915592d5e024b8b042fbe36936d4, type: 2}
@@ -2934,6 +2976,7 @@ MonoBehaviour:
   - {fileID: 2275893326136631409, guid: 95e92b7f02aabb640bd8f93eead20b37, type: 3}
   - {fileID: 8332884649415179728, guid: 98a9680d4b03e7cbdbc4eb1bd0c6f684, type: 3}
   - {fileID: 2089230941429873399, guid: 8711266f50c9a8540a44d9271b9e8e44, type: 3}
+  - {fileID: 1879040126758292862, guid: 2eed98f9a3958d64e93c0a67234439e1, type: 3}
   Pause: {fileID: 0}
   Credits: {fileID: 0}
   Welcome: {fileID: 0}
