@@ -1013,6 +1013,7 @@ MonoBehaviour:
   Welcome: {fileID: 0}
   JKey: {fileID: 0}
   Notif: {fileID: 0}
+  MinigameParent: {fileID: 0}
 --- !u!114 &1600769056
 MonoBehaviour:
   m_ObjectHideFlags: 0
