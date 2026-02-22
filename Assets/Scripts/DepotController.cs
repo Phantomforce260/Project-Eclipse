@@ -12,6 +12,8 @@ public class DepotController : MonoBehaviour
 
     public static Inventory PlayerInventory => instance.playerInventory;
 
+    public static int PackagesDelivered;
+
     public int JumpCount { get; private set; }
 
     private const float fallVelocity = -15.5f;

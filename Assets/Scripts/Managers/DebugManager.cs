@@ -12,8 +12,9 @@ public class DebugManager : MonoBehaviour
         if (Keyboard.current.commaKey.wasPressedThisFrame)
         {
             delKeyCount++;
-            if (delKeyCount > 5)
+            if (delKeyCount >= 5)
             {
+                delKeyCount = 0;
                 Debug.Log("Save Data removed");
                 SaveManager.DeleteSave();
             }

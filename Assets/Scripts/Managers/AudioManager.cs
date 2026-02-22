@@ -11,6 +11,7 @@ public class AudioManager : MonoBehaviour
     /* The AudioManager is responsible for storing and playing sounds.
      * It stores music and SFX in separate arrays, each accessible through their own methods.
      * It references and controls the AudioMixers, which control volume. */
+    public static Sound CurrentPlayingSound;
 
     public const float MaxVolume = 0;
     public const float MinVolume = -80;
@@ -23,8 +24,6 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioMixer audioMixer;
     [SerializeField] private AudioMixerGroup sfxMaster;
     [SerializeField] private AudioMixerGroup musicMaster;
-
-    private Sound currentPlayingSound;
 
     public enum SoundType
     { Music, SFX }
@@ -40,22 +39,6 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
 
         UpdateSounds();
-
-        PlayMusicInstance("Depot", false);
-    }
-
-    private void Start()
-    {
-        if (GameManager.CurrentScene.Equals("Depot"))
-        {
-            currentPlayingSound = GetSoundInstance("Depot", SoundType.Music);
-            foreach (var name in UIManager.GetAllMinigames())
-            {
-                GetSoundInstance(name, SoundType.Music).source.volume = 0;
-                PlayMusicInstance(name, false);
-            }
-        }
-
     }
 
     /* UpdateSounds:
@@ -137,13 +120,13 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public static void SwitchTracks(string target) => instance.currentPlayingSound = instance.SwitchTracksInstance(target);
+    public static void SwitchTracks(string target) => CurrentPlayingSound = instance.SwitchTracksInstance(target);
 
     private Sound SwitchTracksInstance(string target)
     {
         Sound targetTrack = GetSoundInstance(target, SoundType.Music);
         if (targetTrack != null)
-            StartCoroutine(SwitchTracksCoroutine(currentPlayingSound, targetTrack));
+            StartCoroutine(SwitchTracksCoroutine(CurrentPlayingSound, targetTrack));
 
         return targetTrack;
     }
@@ -159,7 +142,7 @@ public class AudioManager : MonoBehaviour
         }
 
         current.source.volume = 0;
-        target.source.volume = 1;
+        target.source.volume = 0.5f;
     }
 
     /* StopSFX --> StopSFXInstance:

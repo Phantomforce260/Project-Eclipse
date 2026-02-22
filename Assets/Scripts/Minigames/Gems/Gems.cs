@@ -37,6 +37,10 @@ public class Gems : Minigame
 
     private void Awake()
     {
+        UIManager.SetNotif(
+            "<Hold> Z + WASD",
+            Color.white
+        );
         Initialize();
 
         gridRect = new Rect(
@@ -47,6 +51,7 @@ public class Gems : Minigame
         );
 
         OnGameFinish.AddListener(() => DepotController.PlayerInventory.Packages.Remove("Gems"));
+        OnGameFinish.AddListener(() => Door.MinigameStarted = false);
     }
 
     void Start()

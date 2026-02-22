@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,12 +11,14 @@ public class GameManager : MonoBehaviour
 
     public static string CurrentScene { get; private set; }
 
+    public bool Vsync;
+    public int VsyncCount = 0;
+
     private static GameManager instance;
 
     private static string previousScene;
 
-    public bool Vsync;
-    public int VsyncCount = 0;
+    private float workTimer;
 
     [Header("Scene Transitions")]
     [SerializeField] private Animator crossFade;
@@ -45,22 +48,69 @@ public class GameManager : MonoBehaviour
         SaveManager.Load();
         crossFade.SetTrigger("Start");
 
-        if (CurrentScene.Equals("Depot") && !SaveManager.ActiveSave.SeenIntro)
-            UIManager.ToggleIntro(true);
+        switch (CurrentScene)
+        {
+            case "Depot" when !SaveManager.ActiveSave.SeenIntro:
+                UIManager.ToggleIntro(true);
+                goto case "Depot";
+            case "Depot":
+                AudioManager.CurrentPlayingSound = AudioManager.GetSound(
+                    "Depot",
+                    AudioManager.SoundType.Music
+                );
+                foreach (var name in UIManager.GetAllMinigames())
+                {
+                    AudioManager.GetSound(
+                        name, 
+                        AudioManager.SoundType.Music
+                    ).source.volume = 0;
+                    AudioManager.PlayMusic(name);
+                }
+                AudioManager.PlayMusic("Depot");
+                break;
+            case "MainMenu":
+                AudioManager.PlayMusic("Intro");
+                AudioManager.CurrentPlayingSound = AudioManager.GetSound("Intro", AudioManager.SoundType.Music);
+                break;
+        }
 
         SetvSync(SaveManager.ActiveSave.DoVsync);
+    }
+
+    public void OnClickedIntro()
+    {
+        StartCoroutine(StartTimer(() => DepotController.PackagesDelivered >= MaxPackages));
+    }
+
+    public static int MaxPackages => SaveManager.ActiveSave.Day switch
+    {
+        1 => 6,
+        2 => 8,
+        3 => 12,
+        4 => 16,
+        5 => 20,
+        _ => 10
+    };
+
+    private IEnumerator StartTimer(Func<bool> endCondition)
+    {
+        workTimer = 0;
+        while (!endCondition())
+        {
+            workTimer += Time.deltaTime;
+            yield return null;
+        }
     }
 
     /* SetvSync:
      *    dovSync: The input value from the checkbox.
      *    
      * Toggles Vsync based on input. */
-    public void SetvSync(bool dovSync)
-    {
-        QualitySettings.vSyncCount = dovSync ? 1 : 0;
-    }
+    public void SetvSync(bool dovSync) => QualitySettings.vSyncCount = dovSync ? 1 : 0;
 
-    //public static void SetFrameRate() => Application.targetFrameRate = SaveManager.UserPrefs.TargetFrameRate;
+
+    /* Scene Loading */
+    // -------------------------------------------------------------------------------------------------------------------------------------------------------
 
     /* LoadLevel --> LoadLevelInstance:
      *     - sceneName: The name of the scene to load.
@@ -114,6 +164,8 @@ public class GameManager : MonoBehaviour
      * 
      * Used by UI buttons. Goes back to the previous scene. */
     public static void ExitScene() => instance.LoadLevelInstance(previousScene);
+
+    // -------------------------------------------------------------------------------------------------------------------------------------------------------
 
     /* OpenURL:
      * 

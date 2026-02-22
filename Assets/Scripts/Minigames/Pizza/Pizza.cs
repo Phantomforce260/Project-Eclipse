@@ -16,7 +16,16 @@ public class Pizza : Minigame
 
     public PizzaSelectable[] chosen;
 
-    private void Awake() => Initialize();
+    private void Awake()
+    {
+        UIManager.SetNotif(
+            "WASD to Move\nZ to Select",
+            Color.black
+        );
+        Initialize();
+        OnGameFinish.AddListener(() => DepotController.PlayerInventory.Packages.Remove("Pizza"));
+        OnGameFinish.AddListener(() => Door.MinigameStarted = false);
+    }
 
     void Start()
     {
@@ -28,9 +37,7 @@ public class Pizza : Minigame
     void Restart()
     {
         for(int i = 0; i < toppings.Length; i++)
-        {
             toppings[i].Restart();
-        }
         
         chosen = new PizzaSelectable[toppings.Length];
 
@@ -85,10 +92,7 @@ public class Pizza : Minigame
             }
 
             if(!foundTopping)
-            {
                 Restart();
-                // The player has officially fucked up
-            }
 
             if(chosen.Length == 0)
                 Finish();

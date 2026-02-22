@@ -40,6 +40,17 @@ public class Mirrors : Minigame
     public Animator buttonAnimator;
     public Animator planetAnimator;
 
+    private void Awake()
+    {
+        UIManager.SetNotif(
+            "<HOLD> Z + WASD",
+            Color.black
+        );
+        Initialize();
+        OnGameFinish.AddListener(() => DepotController.PlayerInventory.Packages.Remove("Mirrors"));
+        OnGameFinish.AddListener(() => Door.MinigameStarted = false);
+    }
+
     void Start()
     {
         mirrorTiles = new MirrorTile[gridDims.x * gridDims.y];

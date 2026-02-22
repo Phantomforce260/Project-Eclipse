@@ -29,6 +29,8 @@ public class UIManager : MonoBehaviour
     private GameState currentState;
     private bool pauseActive;
 
+    private string prevAudioTrack;
+
     public enum GameState
     { Paused, Active }
 
@@ -98,7 +100,26 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public static void ToggleCredits(bool toggle) => instance.Credits.Play(toggle ? "CreditsIn" : "CreditsOut");
+    public static void ToggleCredits(bool toggle)
+    {
+        instance.Credits.Play(toggle ? "CreditsIn" : "CreditsOut");
+
+        if (toggle)
+        {
+            instance.prevAudioTrack = AudioManager.CurrentPlayingSound.name;
+            AudioManager.StopMusic();
+            instance.Invoke(nameof(InvokeCredits), 1f);
+        }
+        else
+        {
+            AudioManager.StopMusic();
+            instance.Invoke(nameof(InvokePrev), 1f);
+        }
+    }
+
+    private void InvokeCredits() => AudioManager.PlayMusic("Credits");
+
+    private void InvokePrev() => AudioManager.PlayMusic(instance.prevAudioTrack);
 
     public static GameObject CreateMinigame(string name)
     {
@@ -130,6 +151,13 @@ public class UIManager : MonoBehaviour
     public static void SetNotif(string message, float timer = 5f)
     {
         instance.Notif.text = message;
+        instance.Notif.gameObject.SetActive(true);
+        instance.Invoke(nameof(HideNotif), timer);
+    }
+    public static void SetNotif(string message, Color textColor, float timer = 5f)
+    {
+        instance.Notif.text = message;
+        instance.Notif.color = textColor;
         instance.Notif.gameObject.SetActive(true);
         instance.Invoke(nameof(HideNotif), timer);
     }
