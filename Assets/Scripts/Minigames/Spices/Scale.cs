@@ -48,7 +48,7 @@ public class Scale : MonoBehaviour
         //     noCreaking &= !AudioManager.IsSoundPlaying("Creaking" + i, AudioManager.SoundType.SFX);
         // }
         // Debug.Log(Mathf.Abs(velocity));
-        // if (noCreaking && Mathf.Abs(velocity) > 2.5f)
+        // if (noCreaking && Mathf.Abs(velocity) > 10f)
         //     AudioManager.PlaySFX("Creaking" + UnityEngine.Random.Range(1, 7));
 
         float newAngleDeg = Mathf.Clamp(angle + velocity * Time.deltaTime, -45f, 45f);

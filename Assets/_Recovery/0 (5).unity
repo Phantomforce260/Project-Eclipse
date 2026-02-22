@@ -2479,6 +2479,18 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: Shaker3
+    clip: {fileID: 8300000, guid: b21570fe12ee09b4aa22dd684f679964, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Shaker4
+    clip: {fileID: 8300000, guid: e87ea078c3039ed48a1dc0d784f2ced8, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   music:
   - name: Credits
     clip: {fileID: 8300000, guid: a2e179197932f2541a8ea3d772b0521d, type: 3}
