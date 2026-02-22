@@ -16,7 +16,12 @@ public class Pizza : Minigame
 
     public PizzaSelectable[] chosen;
 
-    private void Awake() => Initialize();
+    private void Awake() 
+    {
+        Initialize();
+        OnGameFinish.AddListener(() => DepotController.PlayerInventory.Packages.Remove("Pizza"));
+        OnGameFinish.AddListener(() => Door.MinigameStarted = false);
+    }
 
     void Start()
     {
