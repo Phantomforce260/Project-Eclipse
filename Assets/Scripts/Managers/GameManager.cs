@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour
 
     public static int MaxPackages => SaveManager.ActiveSave.Day switch
     {
-        1 => 3,
+        1 => 10,
         2 => 15,
         3 => 20,
         4 => 25,
