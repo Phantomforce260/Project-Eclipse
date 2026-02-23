@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     public bool Vsync;
     public int VsyncCount = 0;
 
-    private static GameManager instance;
+    public static GameManager instance;
 
     private static string previousScene;
 
@@ -87,16 +87,17 @@ public class GameManager : MonoBehaviour
 
     public static int MaxPackages => SaveManager.ActiveSave.Day switch
     {
-        1 => 6,
-        2 => 8,
-        3 => 12,
-        4 => 16,
-        5 => 20,
+        1 => 10,
+        2 => 15,
+        3 => 20,
+        4 => 25,
+        5 => 30,
         _ => 10
     };
 
     private void Update()
     {
+        Debug.Log("Day: " + SaveManager.ActiveSave.Day);
         if (DepotController.PackagesDelivered >= MaxPackages)
         {
             DepotController.MovementEnabled = false;

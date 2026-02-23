@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using System.Collections;
 
 public class UIManager : MonoBehaviour
 {
@@ -172,6 +173,7 @@ public class UIManager : MonoBehaviour
         instance.Notif.gameObject.SetActive(true);
         instance.Invoke(nameof(HideNotif), timer);
     }
+
     public static void SetNotif(string message, Color textColor, float timer = 5f)
     {
         instance.CancelInvoke();
@@ -189,6 +191,8 @@ public class UIManager : MonoBehaviour
         instance.PackageCount.text = DepotController.PackagesDelivered.ToString();
         instance.TimeCount.text = FloatToTime(finalTime);
 
+        DepotController.PackagesDelivered = 0;
+
         int badgeIndex;
         if (finalTime < 105)
             badgeIndex = 0;
@@ -204,6 +208,8 @@ public class UIManager : MonoBehaviour
             badgeIndex = 4;
 
         instance.Badge.sprite = instance.RankBadges[badgeIndex];
+
+        instance.StartCoroutine(instance.RemoveSummary());
     }
 
     private static string FloatToTime(float time)
@@ -211,5 +217,15 @@ public class UIManager : MonoBehaviour
         int mins = (int)time / 60;
         int secs = (int)time % 60;
         return $"{mins}:{secs}";
+    }
+
+    IEnumerator RemoveSummary ()
+    {
+        yield return new WaitForSeconds(7.5f);
+
+        SaveManager.ActiveSave.Day++;
+        GameManager.instance.OnClickedIntro();
+        DepotController.MovementEnabled = true;
+        ToggleSummary(false);
     }
 }
