@@ -212,11 +212,12 @@ public class UIManager : MonoBehaviour
         instance.StartCoroutine(instance.RemoveSummary());
     }
 
-    private static string FloatToTime(float time)
+    public static string FloatToTime(float totalSeconds)
     {
-        int mins = (int)time / 60;
-        int secs = (int)time % 60;
-        return $"{mins}:{secs}";
+        int minutes = (int)(totalSeconds / 60);
+        int seconds = (int)(totalSeconds % 60);
+
+        return $"{minutes}:{seconds:D2}";
     }
 
     IEnumerator RemoveSummary ()

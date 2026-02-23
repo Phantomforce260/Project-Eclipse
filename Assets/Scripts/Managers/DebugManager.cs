@@ -4,11 +4,10 @@ using UnityEngine.InputSystem;
 public class DebugManager : MonoBehaviour
 {
     // This script is designed for testing features through button inputs, update, etc.
-    private int delKeyCount = 0;
 
     // Update is called once per frame
-    void Update()
-    {
+    // void Update()
+    // {
         // if (Keyboard.current.commaKey.wasPressedThisFrame)
         // {
         //     delKeyCount++;
@@ -27,5 +26,5 @@ public class DebugManager : MonoBehaviour
         //     Debug.Log("Starting minigame: " + mg);
         //     UIManager.CreateMinigame(mg);
         // }
-    }
+    // }
 }

@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour
 
     public static int MaxPackages => SaveManager.ActiveSave.Day switch
     {
-        1 => 10,
+        1 => 3,
         2 => 15,
         3 => 20,
         4 => 25,
@@ -97,7 +97,6 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("Day: " + SaveManager.ActiveSave.Day);
         if (DepotController.PackagesDelivered >= MaxPackages)
         {
             DepotController.MovementEnabled = false;

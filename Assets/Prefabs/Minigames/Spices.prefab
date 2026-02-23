@@ -487,7 +487,7 @@ MonoBehaviour:
   spices: {fileID: 2275893326136631409}
   shakerParticles: {fileID: 7206611777136160260}
   amplitude: 25
-  flakesPerShake: 1
+  flakesPerShake: 2.5
   leftKeycap: {fileID: 7356221493845628539}
   rightKeycap: {fileID: 5256406283571416799}
 --- !u!95 &3744546303226079417
@@ -5666,7 +5666,6 @@ MonoBehaviour:
   velocity: 0
   spiceTimerLength: 2.5
   spiceTolerance: 2
-  door: {fileID: -7077521392619494464, guid: 71b6f85625ba3d64cb16095fe408e70b, type: 3}
 --- !u!1001 &1115754684176956895
 PrefabInstance:
   m_ObjectHideFlags: 0

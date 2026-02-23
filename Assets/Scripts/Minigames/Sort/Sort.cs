@@ -53,6 +53,9 @@ public class Sort : Minigame
     // Update is called once per frame
     void Update()
     {
+
+        if(queue.Count == 0) return;
+
         // handle input
         if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
         {

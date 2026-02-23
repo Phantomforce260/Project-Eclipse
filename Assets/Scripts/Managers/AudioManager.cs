@@ -131,8 +131,11 @@ public class AudioManager : MonoBehaviour
 
     private IEnumerator SwitchTracksCoroutine(Sound current, Sound target)
     {
+        float t = 0.2f;
+
         target.source.volume = 0;
-        while (target.source.volume < 0.98f)
+
+        while (target.source.volume < t)
         {
             current.source.volume -= Time.deltaTime;
             target.source.volume += Time.deltaTime;
@@ -140,7 +143,9 @@ public class AudioManager : MonoBehaviour
         }
 
         current.source.volume = 0;
-        target.source.volume = 0.5f;
+        target.source.volume = t;
+
+        Debug.Log("Target source vol: " + target.source.volume);
     }
 
     /* StopSFX --> StopSFXInstance:
