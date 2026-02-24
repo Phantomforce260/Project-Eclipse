@@ -131,7 +131,7 @@ public class AudioManager : MonoBehaviour
 
     private IEnumerator SwitchTracksCoroutine(Sound current, Sound target)
     {
-        float t = 0.2f;
+        float t = 0.7f;
 
         target.source.volume = 0;
 
